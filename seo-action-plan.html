@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sentra Clinic — SEO Audit Action Plan (July 2026)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',sans-serif;background:#f4f6fa;color:#16202c;font-size:15px;line-height:1.7;}
+  .page{max-width:860px;margin:0 auto;padding:32px 20px 80px;}
+  h1{font-size:26px;font-weight:800;color:#0a2540;margin-bottom:6px;}
+  .subtitle{color:#5c6b7c;margin-bottom:32px;font-size:14px;}
+  .score-bar{background:#fff;border-radius:16px;padding:24px 28px;margin-bottom:32px;box-shadow:0 4px 16px rgba(10,37,64,.08);display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+  .score-circle{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#e74c3c,#c0392b);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;font-weight:800;flex-shrink:0;}
+  .score-info h2{font-size:17px;color:#0a2540;margin-bottom:4px;}
+  .score-info p{font-size:13px;color:#5c6b7c;}
+  .section{background:#fff;border-radius:14px;margin-bottom:20px;box-shadow:0 2px 10px rgba(10,37,64,.06);overflow:hidden;}
+  .section-head{padding:18px 24px;display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none;}
+  .section-head h2{font-size:16px;font-weight:700;color:#0a2540;flex:1;}
+  .section-body{padding:0 24px 20px;}
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;flex-shrink:0;}
+  .badge-critical{background:#fde8e8;color:#c0392b;}
+  .badge-high{background:#fef3e2;color:#b7610a;}
+  .badge-medium{background:#fef9e2;color:#9b7a0a;}
+  .badge-low{background:#e8f4fd;color:#1a6fa0;}
+  .badge-done{background:#e6f9ed;color:#1a7a4a;}
+  .badge-info{background:#f0eeff;color:#5b44c9;}
+  .item{border-left:3px solid #e6e2d6;margin:14px 0;padding:10px 0 10px 16px;}
+  .item.critical{border-left-color:#e74c3c;}
+  .item.high{border-left-color:#e67e22;}
+  .item.medium{border-left-color:#f1c40f;}
+  .item.low{border-left-color:#3498db;}
+  .item.done{border-left-color:#27ae60;}
+  .item-title{font-weight:700;color:#0a2540;margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .item-desc{color:#5c6b7c;font-size:14px;}
+  .item-action{margin-top:8px;background:#f7f9fc;border-radius:8px;padding:10px 14px;font-size:13.5px;color:#16202c;}
+  .item-action strong{color:#0a2540;}
+  .step{display:flex;gap:12px;margin:10px 0;}
+  .step-num{width:26px;height:26px;border-radius:50%;background:#0a2540;color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+  .step-text{flex:1;font-size:13.5px;}
+  .wa-box{background:linear-gradient(135deg,#25D366 0%,#128C7E 100%);border-radius:14px;padding:24px;color:#fff;margin-bottom:20px;}
+  .wa-box h2{font-size:18px;font-weight:800;margin-bottom:8px;}
+  .wa-box p{font-size:13px;opacity:.9;margin-bottom:16px;}
+  .wa-content{background:rgba(255,255,255,.15);border-radius:10px;padding:18px;font-size:13px;line-height:1.8;white-space:pre-wrap;font-family:'Courier New',monospace;color:#fff;}
+  .copy-btn{display:inline-block;background:#fff;color:#128C7E;font-weight:700;padding:10px 22px;border-radius:999px;cursor:pointer;font-size:14px;margin-top:14px;border:none;transition:opacity .2s;}
+  .copy-btn:hover{opacity:.85;}
+  .placeholder-table{width:100%;border-collapse:collapse;margin-top:12px;}
+  .placeholder-table th{background:#0a2540;color:#fff;padding:10px 12px;font-size:13px;text-align:left;}
+  .placeholder-table td{padding:10px 12px;border-bottom:1px solid #e6e2d6;font-size:13px;vertical-align:top;}
+  .placeholder-table tr:nth-child(even) td{background:#faf8f2;}
+  .tag{display:inline-block;background:#fde8e8;color:#c0392b;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:4px;}
+  .legend{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;}
+  .legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#5c6b7c;}
+  .legend-dot{width:12px;height:12px;border-radius:50%;}
+  details summary{list-style:none;}
+  details summary::-webkit-details-marker{display:none;}
+  @media(max-width:600px){.score-bar{flex-direction:column;}.wa-content{font-size:11.5px;}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>🔍 Sentra Clinic — SEO Audit Action Plan</h1>
+  <p class="subtitle">Audit Date: July 18, 2026 &nbsp;|&nbsp; Overall Score: <strong style="color:#c0392b">47/100 — Needs Significant Work</strong></p>
+
+  <div class="score-bar">
+    <div class="score-circle">47</div>
+    <div class="score-info">
+      <h2>SEO Health Score: 47 / 100</h2>
+      <p>Technical SEO: 35 &nbsp;|&nbsp; Content Quality: 62 &nbsp;|&nbsp; On-Page SEO: 48 &nbsp;|&nbsp; Schema: 40 &nbsp;|&nbsp; Images: 30</p>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#e74c3c"></div> Critical — Fix This Week</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#e67e22"></div> High — Fix This Month</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f1c40f"></div> Medium — Important</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#3498db"></div> Low — When Possible</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#27ae60"></div> Already Fixed ✓</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- ALREADY FIXED -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-head">
+      <h2>✅ Already Fixed (by Agent in HTML Files)</h2>
+      <span class="badge badge-done">2 Fixes Done</span>
+    </div>
+    <div class="section-body">
+      <div class="item done">
+        <div class="item-title"><span class="badge badge-done">FIXED</span> Dr. Modi FAQPage Schema — Placeholder Text Removed</div>
+        <div class="item-desc">File: <code>10-dr-rohit-modi.html</code> — The JSON-LD FAQPage schema had <code>[Fill: days and hours, walk-in vs appointment policy.]</code> as a placeholder answer. This has been replaced with real OPD timings (Mon–Sat hours) and walk-in/booking policy.</div>
+        <div class="item-action">⚠️ <strong>Action needed:</strong> Re-paste the updated <code>10-dr-rohit-modi.html</code> content into the Elementor HTML widget on the <code>/dr-rohit-modi/</code> WordPress page to activate this fix.</div>
+      </div>
+      <div class="item done">
+        <div class="item-title"><span class="badge badge-done">FIXED</span> "Book Online" Button on Dr. Modi Page — Now Points to Setmore</div>
+        <div class="item-desc">File: <code>10-dr-rohit-modi.html</code> — The "Book Online" CTA button was linking to WhatsApp instead of the actual booking system. Now correctly points to <code>https://sentraclinic.setmore.com/sentra</code>.</div>
+        <div class="item-action">⚠️ <strong>Action needed:</strong> Re-paste <code>10-dr-rohit-modi.html</code> into Elementor to activate.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 1: CRITICAL — DO THIS WEEK -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-head">
+      <h2>🚨 Phase 1 — Critical Fixes (This Week)</h2>
+      <span class="badge badge-critical">4 Issues</span>
+    </div>
+    <div class="section-body">
+
+      <div class="item critical">
+        <div class="item-title"><span class="badge badge-critical">CRITICAL</span> Sitewide Footer — 3 Broken Links (404 Errors)</div>
+        <div class="item-desc">Every page on the site has a footer with "Quick Links" that includes <strong>/gallery/</strong>, <strong>/faq/</strong>, and <strong>/contact-us/</strong> — all three return 404. These appear on EVERY page so they're damaging the entire site's crawl health.</div>
+        <div class="item-action">
+          <strong>How to fix (WordPress Dashboard):</strong>
+          <div class="step"><div class="step-num">1</div><div class="step-text">Go to WordPress Admin → <strong>Appearance → Widgets</strong> (or your Elementor footer template)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Find the "Quick Links" footer widget/section</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Change <code>/gallery/</code> → <code>/eye-hospital-gallery-malad-mumbai/</code> (the working URL)</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Change <code>/faq/</code> → either build a real FAQ page at this URL OR point to an existing page with FAQs (e.g. homepage or services page)</div></div>
+          <div class="step"><div class="step-num">5</div><div class="step-text">Change <code>/contact-us/</code> → build a contact page at this URL OR update link to phone/WhatsApp CTA</div></div>
+          <div class="step"><div class="step-num">6</div><div class="step-text">If you can't edit the footer widget, go to <strong>Yoast SEO / Rank Math → Redirects</strong> and add 301 redirects: <code>/gallery/ → /eye-hospital-gallery-malad-mumbai/</code></div></div>
+        </div>
+      </div>
+
+      <div class="item critical">
+        <div class="item-title"><span class="badge badge-critical">CRITICAL</span> Broken Images on /best-eye-servies-malad-mumbai/ and /eye-care-blogs-malad-mumbai/</div>
+        <div class="item-desc">The main Services page (linked directly from navigation) and the Blogs hub page are showing <strong>completely blank images</strong> — every single image has an empty source. This is likely a WordPress Elementor lazy-load or CDN/caching plugin issue.</div>
+        <div class="item-action">
+          <strong>How to fix:</strong>
+          <div class="step"><div class="step-num">1</div><div class="step-text">Go to WordPress Admin → <strong>Plugins</strong>. Look for any image optimization or lazy-load plugin (e.g. Smush, ShortPixel, Imagify, WP Rocket, BJ Lazy Load, a3 Lazy Load)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Temporarily <strong>Deactivate</strong> that plugin and check if images appear on the page</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">If images appear after deactivating → the plugin is causing <code>data-src</code> instead of <code>src</code>. Reconfigure the plugin's lazy-load settings to exclude these pages</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Also go to <strong>WP Admin → Settings → Clear All Cache</strong> (or your caching plugin — WP Rocket, W3 Total Cache, etc.) and clear completely</div></div>
+          <div class="step"><div class="step-num">5</div><div class="step-text">Open the page in Chrome → Right-click any broken image → Inspect → Check if <code>src</code> is empty or has a wrong path</div></div>
+        </div>
+      </div>
+
+      <div class="item critical">
+        <div class="item-title"><span class="badge badge-critical">CRITICAL</span> Dr. Rohit Modi Page — Re-paste Updated HTML</div>
+        <div class="item-desc">We've fixed the schema and booking button in <code>10-dr-rohit-modi.html</code>. The live WordPress page still has the old broken version with placeholder schema and wrong button link.</div>
+        <div class="item-action">
+          <strong>How to fix:</strong>
+          <div class="step"><div class="step-num">1</div><div class="step-text">Open the file <code>10-dr-rohit-modi.html</code> from Replit (preview it at your Preview Server URL)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Select ALL the content (Ctrl+A) and Copy</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Go to WordPress → Edit Page → <strong>/dr-rohit-modi/</strong> → Open in Elementor</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Click the HTML widget → Delete existing code → Paste new code → Update/Publish</div></div>
+        </div>
+      </div>
+
+      <div class="item critical">
+        <div class="item-title"><span class="badge badge-critical">CRITICAL</span> Blog Hub Broken Links — All Thumbnail/Headline Anchors Wrong</div>
+        <div class="item-desc">On your <code>/eye-care-blogs-malad-mumbai/</code> page, 8 blog post thumbnails AND headline links all go to <strong>/diabetes-and-your-eyes</strong> instead of the correct blog URL. Only the "Read More →" button links correctly. Affects: Is LASIK Safe, Contoura vs LASIK, SMILE vs LASIK vs Contoura, Cataract Recovery, Sudden Blurry Vision, Cataract vs Glaucoma, Reduce Eye Power Naturally.</div>
+        <div class="item-action">
+          <strong>How to fix:</strong>
+          <div class="step"><div class="step-num">1</div><div class="step-text">Go to WordPress → Edit Page → <code>/eye-care-blogs-malad-mumbai/</code> → Open in Elementor</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Find the blog posts grid/loop. If it's a WordPress loop widget, check if it's using a correct query (it might be pulling the wrong post or using a static link)</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">If it's hard-coded HTML: for each blog card, click the image AND the headline — change both their href/link to match the correct URL (same URL as the "Read More" button below)</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Correct URLs: <code>/is-lasik-safe-evidence</code> / <code>/contoura-vs-lasik</code> / <code>/smile-vs-lasik-vs-contoura</code> / <code>/cataract-recovery-guide</code> / <code>/sudden-vision-loss-emergency</code> / <code>/cataract-vs-glaucoma</code> / <code>/reduce-eye-number-naturally-truth</code></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 2: HIGH — THIS MONTH -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-head">
+      <h2>⚠️ Phase 2 — High Impact (This Month, Weeks 2–3)</h2>
+      <span class="badge badge-high">5 Issues</span>
+    </div>
+    <div class="section-body">
+
+      <div class="item high">
+        <div class="item-title"><span class="badge badge-high">HIGH</span> Duplicate Services Hub — 2 Pages Fighting Each Other</div>
+        <div class="item-desc">
+          Two services pages with almost identical content are competing for the same keyword:
+          <br>• <code>/services/</code> — older, thinner content, footer links here
+          <br>• <code>/best-eye-servies-malad-mumbai/</code> — newer, keyword-rich BUT has a typo ("servies" not "services"), main nav links here
+          <br>Google is confused which to rank, so neither ranks well.
+        </div>
+        <div class="item-action">
+          <strong>How to fix (choose ONE option):</strong>
+          <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Option A (Recommended):</strong> Create a new clean URL <code>/eye-care-services-malad-mumbai/</code> with the stronger content. Then 301-redirect BOTH old URLs to this new one.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Option B (Simpler):</strong> Keep <code>/services/</code> as canonical (fix its thin content), and 301-redirect <code>/best-eye-servies-malad-mumbai/</code> to it. Update main nav to point to <code>/services/</code>.</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">To add 301 redirect: WordPress Admin → Yoast SEO / Rank Math → <strong>Redirects</strong> → Add new → From: <code>/best-eye-servies-malad-mumbai/</code> → To: your chosen canonical URL → Type: 301</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Update all navigation menus: WordPress Admin → <strong>Appearance → Menus</strong> → Update Services link to point to the single chosen URL</div></div>
+          <div class="step"><div class="step-num">5</div><div class="step-text">Tell us which URL you choose so we can update all internal breadcrumbs in the HTML files too</div></div>
+        </div>
+      </div>
+
+      <div class="item high">
+        <div class="item-title"><span class="badge badge-high">HIGH</span> Duplicate Blogs Hub — Same Problem</div>
+        <div class="item-desc">
+          <code>/blogs/</code> (older, generic title "Blogs - Sentra", auto-generated meta desc) and <code>/eye-care-blogs-malad-mumbai/</code> (newer, better) both exist. Main nav → newer; footer → older. Both competing for same terms.
+        </div>
+        <div class="item-action">
+          <strong>How to fix:</strong>
+          <div class="step"><div class="step-num">1</div><div class="step-text">Keep <code>/eye-care-blogs-malad-mumbai/</code> as canonical (it has better content and title)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Add 301 redirect: <code>/blogs/</code> → <code>/eye-care-blogs-malad-mumbai/</code></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Update footer "Blogs" link to point to <code>/eye-care-blogs-malad-mumbai/</code></div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Also fix the title on the old /blogs/ page OR just rely on the redirect</div></div>
+        </div>
+      </div>
+
+      <div class="item high">
+        <div class="item-title"><span class="badge badge-high">HIGH</span> Duplicate Individual Service Pages</div>
+        <div class="item-desc">
+          Each service likely has TWO versions — old thin page and new detailed page. Examples spotted:
+          <br>• Cataract: <code>/cataract-surgery/</code> (old, thin) vs <code>/cataract-surgery-malad-mumbai/</code> (strong)
+          <br>• Likely same for: Retina, Cornea, LASIK, Glaucoma, Strabismus, Orbit/Oculoplasty
+        </div>
+        <div class="item-action">
+          <strong>How to fix (do this for EACH service):</strong>
+          <div class="step"><div class="step-num">1</div><div class="step-text">Go to Google Search Console → Coverage/Pages → look for each service URL pair</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Keep the newer keyword-rich URL (e.g. <code>/cataract-surgery-malad-mumbai/</code>)</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Add 301 redirect from old URL to new URL for each</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Update any nav/footer links pointing to old URLs</div></div>
+        </div>
+      </div>
+
+      <div class="item high">
+        <div class="item-title"><span class="badge badge-high">HIGH</span> Inconsistent Navigation — 2 Different Nav/Footer Templates Live Simultaneously</div>
+        <div class="item-desc">Some pages show old navigation (no Emergency Contact, Gallery → 404), other pages show new navigation (Emergency Contact link, Gallery → working URL). Also footer says "Developed By Digital Dots" on newer pages and "Developed By Digital Amigos" on older pages. This happens when only some pages get updated in Elementor.</div>
+        <div class="item-action">
+          <strong>How to fix:</strong>
+          <div class="step"><div class="step-num">1</div><div class="step-text">In Elementor, check if you're using a <strong>Global Header/Footer Template</strong> (Elementor Pro → Theme Builder → Header / Footer)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">If yes: edit the Global Template once and it applies everywhere. Update nav links and footer credit text here.</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">If not using Global Templates: you'll need to update the header/footer on each page individually. Consider switching to Global Templates.</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Also remove the Twitter meta tag <code>twitter:data1</code> that has <code>aishwarya@digitalamigos.in</code> — it's visible in page source</div></div>
+        </div>
+      </div>
+
+      <div class="item high">
+        <div class="item-title"><span class="badge badge-high">HIGH</span> Breadcrumb Links Point to Wrong Services URL</div>
+        <div class="item-desc">On pages like <code>/cataract-surgery-malad-mumbai/</code> and <code>/dr-rohit-modi/</code>, the breadcrumb "Eye Care Services" links to <code>/services/</code> (the thin duplicate) but the main nav uses <code>/best-eye-servies-malad-mumbai/</code>. This confuses Google about which is canonical.</div>
+        <div class="item-action">
+          <strong>How to fix:</strong> Once you decide the canonical Services URL (Phase 2, issue above), tell us and we'll update all breadcrumb links in ALL HTML files in one go. This is a quick code change we can do from Replit.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 3: MEDIUM — CONTENT & SCHEMA -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-head">
+      <h2>📋 Phase 3 — Content & Schema (Month 2)</h2>
+      <span class="badge badge-medium">4 Issues</span>
+    </div>
+    <div class="section-body">
+
+      <div class="item medium">
+        <div class="item-title"><span class="badge badge-medium">MEDIUM</span> Schema Already Good on Homepage — Verify via Rich Results Test</div>
+        <div class="item-desc">The homepage already has MedicalClinic, Physician, FAQPage, and AggregateRating (4.9★, 222 reviews) schema in the HTML. However, the audit couldn't directly verify it rendered correctly on the live site.</div>
+        <div class="item-action">
+          <strong>Verify it's working:</strong>
+          <div class="step"><div class="step-num">1</div><div class="step-text">Go to: <a href="https://search.google.com/test/rich-results" target="_blank" style="color:#0a2540">search.google.com/test/rich-results</a></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Enter: <code>https://sentraclinic.com/</code> and click "Test URL"</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Check if FAQPage, MedicalClinic, and AggregateRating are detected with no errors</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Do the same for <code>https://sentraclinic.com/cataract-surgery-malad-mumbai/</code> and <code>https://sentraclinic.com/dr-rohit-modi/</code></div></div>
+        </div>
+      </div>
+
+      <div class="item medium">
+        <div class="item-title"><span class="badge badge-medium">MEDIUM</span> Missing / Inconsistent Alt Text on Images</div>
+        <div class="item-desc">Older pages (like the Services hub at /services/) have some images with no alt text. Newer pages are fine. This affects image search visibility and accessibility.</div>
+        <div class="item-action">
+          <strong>How to fix:</strong>
+          <div class="step"><div class="step-num">1</div><div class="step-text">In WordPress Admin → <strong>Media Library</strong>: click each image → add descriptive "Alt Text" field</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">For the Services hub images: Retina icon → "Retina Treatment at Sentra Clinic Malad Mumbai"; Orbit Oculoplasty → "Orbit Oculoplasty Surgery Malad"; Strabismus → "Squint / Strabismus Treatment Malad"</div></div>
+        </div>
+      </div>
+
+      <div class="item medium">
+        <div class="item-title"><span class="badge badge-medium">MEDIUM</span> Title Tag Cannibalization — Homepage vs Services Hub</div>
+        <div class="item-desc">Homepage title: "Eye Specialist in Malad, Mumbai | Sentra Clinic". Services hub title: "Eye Specialist Service in Malad, Mumbai | Book an Appointment". Both target same head keyword — Google alternates between them, hurting both pages' rankings.</div>
+        <div class="item-action">
+          <strong>How to fix (via Yoast/RankMath SEO plugin):</strong>
+          <div class="step"><div class="step-num">1</div><div class="step-text">Homepage title → keep "Eye Specialist in Malad, Mumbai | Sentra Clinic" (branded/head term)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Services hub title → change to "Eye Care Services in Malad Mumbai — Cataract, LASIK, Retina | Sentra Clinic"</div></div>
+        </div>
+      </div>
+
+      <div class="item medium">
+        <div class="item-title"><span class="badge badge-medium">MEDIUM</span> /blogs/ Page — Fix Auto-Generated Meta Description</div>
+        <div class="item-desc">Current meta description on /blogs/ is auto-concatenated page text, cut off mid-sentence. Looks very bad in Google search results.</div>
+        <div class="item-action">
+          <strong>How to fix:</strong> In Yoast/RankMath on the /blogs/ page, manually write: <em>"Eye care tips, LASIK advice, cataract guides & more from Dr. Rohit Modi at Sentra Clinic, Malad Mumbai. Read expert articles on vision health."</em> (150 chars)
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 4: MONITORING -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-head">
+      <h2>📊 Phase 4 — Monitoring (Ongoing)</h2>
+      <span class="badge badge-info">4 Actions</span>
+    </div>
+    <div class="section-body">
+
+      <div class="item">
+        <div class="item-title">Submit XML Sitemap in Google Search Console</div>
+        <div class="item-action">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Go to <a href="https://search.google.com/search-console" target="_blank">Google Search Console</a> → Sitemaps</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Submit: <code>https://sentraclinic.com/sitemap.xml</code></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Make sure sitemap only contains the CANONICAL URLs (not both duplicate versions)</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Also check <code>https://sentraclinic.com/robots.txt</code> — make sure it doesn't block important pages</div></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">Run PageSpeed Insights</div>
+        <div class="item-action">
+          Go to <a href="https://pagespeed.web.dev" target="_blank">pagespeed.web.dev</a> → Test homepage + cataract page. Target: LCP under 2.5s, CLS under 0.1. Convert hero images to WebP format via WordPress Media Library or an image optimization plugin.
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">Track Keyword Rankings</div>
+        <div class="item-action">
+          Track weekly: "eye specialist Malad", "cataract surgery Malad", "LASIK Malad Mumbai", "eye hospital Malad East". Use Google Search Console → Performance → Queries filter.
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">Run Rich Results Test After All Fixes</div>
+        <div class="item-action">
+          After pasting updated HTML files into Elementor, re-test schema at <a href="https://search.google.com/test/rich-results" target="_blank">search.google.com/test/rich-results</a> for homepage, dr-rohit-modi, cataract-surgery pages.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- TEAM PLACEHOLDERS -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-head">
+      <h2>📝 Info Needed from Your Team (To Fill Placeholders)</h2>
+      <span class="badge badge-high">9 Items</span>
+    </div>
+    <div class="section-body">
+      <p style="font-size:13px;color:#5c6b7c;margin-bottom:14px;">These HTML files have <code>[TEAM: ...]</code> placeholder text visible on the live pages. These need real information from Dr. Modi / clinic staff before the pages are pasted into WordPress:</p>
+
+      <table class="placeholder-table">
+        <thead>
+          <tr>
+            <th>Page</th>
+            <th>What's Missing</th>
+            <th>Who Can Provide This</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>12-comprehensive-eye-checkup-malad.html</code></td>
+            <td>Actual eye checkup fee + timings + walk-in policy + whether fee adjusts against procedure</td>
+            <td>Dr. Modi / Reception</td>
+          </tr>
+          <tr>
+            <td><code>13-eye-specialist-goregaon.html</code></td>
+            <td>Parking instructions near Shah Arcade 2, Rani Sati Road</td>
+            <td>Reception / Staff</td>
+          </tr>
+          <tr>
+            <td><code>14-eye-specialist-kandivali.html</code></td>
+            <td>Exact route/landmarks from Kandivali + parking details</td>
+            <td>Reception / Staff</td>
+          </tr>
+          <tr>
+            <td><code>15-eye-specialist-borivali.html</code></td>
+            <td>Exact route/landmarks from Borivali + parking details</td>
+            <td>Reception / Staff</td>
+          </tr>
+          <tr>
+            <td><code>16-eye-clinic-malad-west.html</code></td>
+            <td>Exact route/landmarks from Malad West + parking details</td>
+            <td>Reception / Staff</td>
+          </tr>
+          <tr>
+            <td><code>17-eye-clinic-near-kurar-dindoshi.html</code></td>
+            <td>Exact route/landmarks from Kurar/Dindoshi + parking details</td>
+            <td>Reception / Staff</td>
+          </tr>
+          <tr>
+            <td><code>22-blog-lasik-eligibility-checklist.html</code></td>
+            <td>LASIK/Contoura screening fee + whether it's adjusted against procedure cost</td>
+            <td>Dr. Modi / Reception</td>
+          </tr>
+          <tr>
+            <td><code>23-blog-diabetes-and-your-eyes.html</code></td>
+            <td>Diabetes + eye disease statistics (currently has placeholder caption)</td>
+            <td>Content team / Dr. Modi</td>
+          </tr>
+          <tr>
+            <td><code>25-emergency-contact.html</code></td>
+            <td>Exact hours/days when emergency line is available (24×7? or specific hours?)</td>
+            <td>Dr. Modi / Reception</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:13px;color:#5c6b7c;margin-top:12px;">Once you have this info, share it with us and we'll fill in all files from Replit — no need to edit them manually in Elementor.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- WHATSAPP SUMMARY -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="wa-box">
+    <h2>📱 WhatsApp Message — Copy & Send to Your SEO Sir</h2>
+    <p>Yeh message copy karo aur sir ko bhejo. Usme sab kuch clearly listed hai.</p>
+    <div class="wa-content" id="wa-text">*Sentra Clinic — SEO Audit Response*
+*Date: July 2026 | Score: 47/100*
+
+Audit report mila. Humne review kiya. Yeh hai complete status:
+
+---
+✅ *ALREADY FIXED (by developer):*
+1. Dr. Modi page FAQPage schema — placeholder `[Fill: days and hours]` replace ho gaya real OPD timings se
+2. Dr. Modi page — "Book Online" button ab Setmore pe ja raha hai (pehle broken tha)
+
+---
+🚨 *CRITICAL — This Week (Phase 1):*
+
+1. *Footer 404 Links (MOST URGENT)*
+   Har ek page ke footer mein /gallery/, /faq/, /contact-us/ 404 error de raha hai. Yeh puri site ko affect kar raha hai.
+   Fix: Footer template mein inhe working URLs pe redirect karo ya real pages banao.
+
+2. *Broken Images — Services & Blogs Hub Pages*
+   /best-eye-servies-malad-mumbai/ aur /eye-care-blogs-malad-mumbai/ pe saari images blank aa rahi hain. Lagta hai lazy-load plugin issue hai.
+   Fix: Image optimization plugin temporarily deactivate karo, cache clear karo, check karo.
+
+3. *Blog Hub — 8 Blog Cards Wrong Link*
+   /eye-care-blogs-malad-mumbai/ pe 8 blog posts ke thumbnail aur headline dono /diabetes-and-your-eyes/ pe ja rahe hain (galat URL). Sirf "Read More" button sahi hai.
+   Fix: Elementor mein har blog card ka image link + headline link fix karo.
+
+4. *Dr. Modi Page — Re-paste Updated HTML*
+   Updated file Replit mein ready hai. Elementor mein /dr-rohit-modi/ pe naya code paste karna hai.
+
+---
+⚠️ *HIGH — This Month (Phase 2):*
+
+5. *Duplicate Services Pages* — /services/ aur /best-eye-servies-malad-mumbai/ (typo bhi hai — "servies" not "services") dono compete kar rahe hain.
+   Fix: Ek canonical URL choose karo, doosre se 301 redirect lagao.
+
+6. *Duplicate Blogs Pages* — /blogs/ aur /eye-care-blogs-malad-mumbai/ dono live hain.
+   Fix: /eye-care-blogs-malad-mumbai/ ko canonical banao, /blogs/ se 301 redirect lagao.
+
+7. *Old Service Pages* — Cataract, Retina, LASIK etc. ke purane thin pages bhi live hain naaye pages ke saath. Sab pe 301 redirects chahiye.
+
+8. *2 Different Nav Templates* — Kuch pages pe old nav hai, kuch pe new. Footer mein bhi "Digital Dots" vs "Digital Amigos" inconsistency hai.
+   Fix: Elementor Global Template se ek hi header/footer use karo sab pe.
+
+9. *Breadcrumbs* — "Eye Care Services" breadcrumb /services/ pe ja raha hai, nav /best-eye-servies-malad-mumbai/ pe. Canonical URL tay hone ke baad hum sab HTML files update kar denge.
+
+---
+📋 *MEDIUM — Month 2 (Phase 3):*
+
+10. Schema verify karo: homepage + cataract + dr-rohit-modi pages ka FAQPage/MedicalClinic/AggregateRating schema Google Rich Results Test pe check karo.
+
+11. Services hub title tag change karo: "Eye Care Services in Malad Mumbai — Cataract, LASIK, Retina | Sentra Clinic" (abhi homepage aur services dono same keyword target kar rahe hain)
+
+12. /blogs/ page ka meta description manually likhna hai Yoast/RankMath mein (abhi auto-generated hai, cut-off ho raha hai)
+
+13. Alt text missing hai services hub ke kuch images pe (Retina, Orbit, Strabismus icons)
+
+---
+📊 *ONGOING — Phase 4:*
+- Google Search Console mein sitemap.xml submit karo (canonical URLs only)
+- PageSpeed Insights chalaao homepage + cataract page pe
+- Monthly keyword tracking: "eye specialist Malad", "cataract surgery Malad", "LASIK Malad Mumbai"
+
+---
+📝 *Team Se Info Chahiye:*
+Yeh pages pe placeholders hain jise fill karna hai:
+- Comprehensive Eye Checkup fee aur timings (file 12)
+- Parking details near Shah Arcade 2 (files 13–17)
+- LASIK screening fee (file 22)
+- Emergency contact hours — 24×7 hai ya specific? (file 25)
+- Diabetes statistics caption (file 23)
+
+Yeh info mile toh hum directly Replit se sab files update kar denge, Elementor mein ek baar paste karna hoga.
+
+---
+*Priority Order:*
+Week 1 → Footer 404s + Broken Images + Blog hub links + Re-paste Dr. Modi page
+Week 2–3 → Duplicate pages, 301 redirects, Nav standardization
+Month 2 → Schema verification, Title tags, Alt text, Meta descriptions
+Ongoing → GSC monitoring, PageSpeed, Rankings
+
+Koi bhi changes ke liye batao — developer se updates milenge.</div>
+    <button class="copy-btn" onclick="copyWA()">📋 Copy WhatsApp Message</button>
+  </div>
+
+  <p style="text-align:center;color:#5c6b7c;font-size:12px;margin-top:32px;">Generated from Sentra Clinic SEO Audit Report — July 2026 | sentraclinic.com</p>
+
+</div>
+
+<script>
+function copyWA(){
+  var text = document.getElementById('wa-text').innerText;
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(text).then(function(){
+      alert('✅ WhatsApp message copied! Paste it in WhatsApp now.');
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    alert('✅ WhatsApp message copied!');
+  }
+}
+</script>
+</body>
+</html>

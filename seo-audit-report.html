@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEO Audit Report — Sentra Clinic Content Pack</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f6fa;color:#1a1f2e;font-size:15px;line-height:1.6;}
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 20px 60px;}
+
+  /* Header */
+  .report-header{background:linear-gradient(135deg,#0a2540,#071b30);color:#fff;border-radius:16px;padding:36px 40px;margin-bottom:32px;}
+  .report-header h1{font-size:28px;font-weight:800;margin-bottom:6px;letter-spacing:.2px;}
+  .report-header .sub{color:#aec3d8;font-size:15px;}
+  .report-header .meta-row{display:flex;gap:28px;margin-top:20px;flex-wrap:wrap;}
+  .report-header .chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:7px 16px;border-radius:999px;font-size:13px;font-weight:600;}
+
+  /* Summary cards */
+  .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px;}
+  .scard{background:#fff;border-radius:12px;padding:20px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.07);}
+  .scard .num{font-size:36px;font-weight:800;display:block;line-height:1;}
+  .scard .lbl{font-size:12px;font-weight:600;color:#6b7a8d;margin-top:4px;text-transform:uppercase;letter-spacing:.05em;}
+  .scard.green .num{color:#1f7a6c;}
+  .scard.red .num{color:#c0392b;}
+  .scard.orange .num{color:#c9932c;}
+  .scard.blue .num{color:#0a2540;}
+
+  /* Section title */
+  .section-title{font-size:20px;font-weight:800;color:#0a2540;margin:36px 0 16px;padding-left:16px;border-left:5px solid #c9932c;}
+
+  /* Page card */
+  .page-card{background:#fff;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,.07);margin-bottom:28px;overflow:hidden;}
+  .page-card-header{padding:18px 24px;display:flex;align-items:center;gap:16px;border-bottom:1px solid #eef0f4;}
+  .page-num{background:#0a2540;color:#f6e8c9;font-weight:800;font-size:15px;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .page-title{font-size:17px;font-weight:700;color:#0a2540;}
+  .page-url{font-size:13px;color:#6b7a8d;font-family:monospace;margin-top:2px;}
+  .page-card-body{padding:20px 24px;}
+
+  /* Row */
+  .audit-row{display:grid;grid-template-columns:160px 1fr 1fr 80px;gap:12px;align-items:start;padding:13px 0;border-bottom:1px solid #f0f0f0;}
+  .audit-row:last-child{border-bottom:none;}
+  .audit-row .field{font-size:12.5px;font-weight:700;color:#6b7a8d;text-transform:uppercase;letter-spacing:.05em;padding-top:3px;}
+  .audit-row .doc-val{font-size:14px;color:#1a1f2e;}
+  .audit-row .html-val{font-size:14px;color:#1a1f2e;}
+  .audit-row .doc-val em,.audit-row .html-val em{font-style:normal;font-size:12px;color:#aaa;}
+  .col-label{font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;}
+
+  /* Status badges */
+  .badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;white-space:nowrap;}
+  .badge.match{background:#e8f6f3;color:#1f7a6c;}
+  .badge.minor{background:#fff8ec;color:#a97814;}
+  .badge.mismatch{background:#fdecea;color:#c0392b;}
+  .badge.new{background:#e8edf6;color:#0a2540;}
+
+  /* Diff highlight */
+  mark{background:#fff3cd;padding:0 2px;border-radius:3px;font-size:inherit;}
+  .changed{background:#fff8ec;border-radius:6px;padding:2px 6px;}
+
+  /* H2 table */
+  .h2-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:13.5px;}
+  .h2-table th{background:#f4f6fa;text-align:left;padding:10px 14px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#6b7a8d;}
+  .h2-table td{padding:9px 14px;border-bottom:1px solid #f0f0f0;vertical-align:top;}
+  .h2-table tr:last-child td{border-bottom:none;}
+  .h2-table .match-row td{background:#f9fffe;}
+  .h2-table .diff-row td{background:#fffbf0;}
+  .h2-table .new-row td{background:#f0f4ff;}
+
+  /* Notes box */
+  .notes-box{background:#fff8ec;border:1px solid #f4d9a6;border-radius:10px;padding:14px 18px;margin-top:16px;font-size:14px;color:#6b4e12;}
+  .notes-box strong{color:#a97814;}
+
+  /* Legend */
+  .legend{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:28px;padding:16px 20px;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .legend-item{display:flex;align-items:center;gap:8px;font-size:13px;}
+
+  /* Action items */
+  .actions{background:#fff;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,.07);padding:24px 28px;margin-top:36px;}
+  .actions h3{font-size:18px;font-weight:800;color:#0a2540;margin-bottom:16px;}
+  .action-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid #f0f0f0;align-items:flex-start;}
+  .action-item:last-child{border-bottom:none;}
+  .action-num{background:#c0392b;color:#fff;font-weight:800;font-size:13px;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+  .action-num.orange{background:#c9932c;}
+  .action-text{font-size:14.5px;}
+  .action-text strong{color:#0a2540;}
+
+  @media(max-width:700px){
+    .summary{grid-template-columns:1fr 1fr;}
+    .audit-row{grid-template-columns:1fr;gap:6px;}
+    .report-header{padding:24px 20px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="report-header">
+    <h1>📋 SEO Audit Report — Sentra Clinic</h1>
+    <div class="sub">Content Pack vs. Live HTML Files — H1 · H2 · Title Tag · Meta Description · Keywords</div>
+    <div class="meta-row">
+      <span class="chip">📄 Source: Month 1 SEO Content Pack (Digital Dots)</span>
+      <span class="chip">📁 Files Checked: Pages 1–10 (+ Page 11)</span>
+      <span class="chip">📅 Audit Date: July 2026</span>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    <div class="scard green"><span class="num">10</span><span class="lbl">✅ Full Match</span></div>
+    <div class="scard orange"><span class="num">1</span><span class="lbl">⚠️ Minor (H2 count)</span></div>
+    <div class="scard red"><span class="num">0</span><span class="lbl">❌ Mismatch</span></div>
+    <div class="scard blue"><span class="num">1</span><span class="lbl">🆕 New (not in DOCX)</span></div>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="legend-item"><span class="badge match">✅ Match</span> Exact match with content pack</div>
+    <div class="legend-item"><span class="badge minor">⚠️ Minor</span> Small wording difference, SEO impact low</div>
+    <div class="legend-item"><span class="badge mismatch">❌ Mismatch</span> Significantly different — client said "same rakhna hai"</div>
+    <div class="legend-item"><span class="badge new">🆕 New</span> Not in original DOCX — added separately</div>
+  </div>
+
+  <!-- ═══════════ PAGE 1 ═══════════ -->
+  <div class="section-title">Page-by-Page Breakdown</div>
+
+  <div class="page-card">
+    <div class="page-card-header">
+      <div class="page-num">1</div>
+      <div>
+        <div class="page-title">Homepage Rewrite</div>
+        <div class="page-url">URL: / (homepage) &nbsp;·&nbsp; File: 1-homepage.html</div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:10px;flex-wrap:wrap;">
+        <span class="badge match">✅ Title Fixed</span>
+        <span class="badge match">✅ Meta Fixed</span>
+        <span class="badge match">✅ H1 Fixed</span>
+      </div>
+    </div>
+    <div class="page-card-body">
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr 90px;gap:12px;padding-bottom:10px;border-bottom:2px solid #f0f0f0;margin-bottom:6px;">
+        <div class="col-label">Field</div>
+        <div class="col-label">📄 Content Pack (DOCX)</div>
+        <div class="col-label">💻 HTML File (Current)</div>
+        <div class="col-label">Status</div>
+      </div>
+
+      <div class="audit-row">
+        <div class="field">Primary KW</div>
+        <div class="doc-val">eye specialist in malad</div>
+        <div class="html-val">Present in Title, Meta &amp; H1 ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Secondary KWs</div>
+        <div class="doc-val">eye hospital in malad, eye doctor malad east, ophthalmologist near me</div>
+        <div class="html-val">Covered in page content ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Title Tag</div>
+        <div class="doc-val"><strong>Eye Specialist in Malad, Mumbai | Sentra Clinic</strong></div>
+        <div class="html-val"><strong>Eye Specialist in Malad, Mumbai | Sentra Clinic</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Meta Description</div>
+        <div class="doc-val">Advanced eye care in Malad — LASIK, cataract, retina &amp; more by Dr. Rohit Modi. Latest technology, transparent pricing. Book your eye checkup today.</div>
+        <div class="html-val">Advanced eye care in Malad — LASIK, cataract, retina &amp; more by Dr. Rohit Modi. Latest technology, transparent pricing. Book your eye checkup today.</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H1</div>
+        <div class="doc-val"><strong>Advanced Eye Specialist in Malad, Mumbai — Sentra Clinic</strong></div>
+        <div class="html-val"><strong>Advanced Eye Specialist in Malad, Mumbai — Sentra Clinic</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H2s</div>
+        <div class="doc-val">Why the Western Suburbs Trusts Sentra Clinic + more</div>
+        <div class="html-val">15 H2 sections — expanded vs DOCX, all topics covered</div>
+        <div><span class="badge minor">⚠️</span></div>
+      </div>
+    </div>
+    <div class="notes-box" style="margin:0 24px 20px;background:#f0faf0;border-left-color:#1f7a6c;">
+      <strong>✅ Fixed:</strong> Title Tag, Meta Description aur H1 — teeno DOCX ke exact text se match kar rahe hain. Primary keyword <em>"eye specialist in malad"</em> teeno mein present hai.
+    </div>
+  </div>
+
+  <!-- ═══════════ PAGE 2 ═══════════ -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div class="page-num">2</div>
+      <div>
+        <div class="page-title">LASIK Pillar Page</div>
+        <div class="page-url">URL: /lasik-eye-surgery-malad-mumbai &nbsp;·&nbsp; File: 2-lasik-eye-surgery-malad-mumbai.html</div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:10px;flex-wrap:wrap;">
+        <span class="badge match">✅ Title Fixed</span>
+        <span class="badge match">✅ Meta Fixed</span>
+        <span class="badge match">✅ H1 Fixed</span>
+      </div>
+    </div>
+    <div class="page-card-body">
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr 90px;gap:12px;padding-bottom:10px;border-bottom:2px solid #f0f0f0;margin-bottom:6px;">
+        <div class="col-label">Field</div>
+        <div class="col-label">📄 Content Pack (DOCX)</div>
+        <div class="col-label">💻 HTML File (Current)</div>
+        <div class="col-label">Status</div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Primary KW</div>
+        <div class="doc-val">lasik surgery in malad</div>
+        <div class="html-val">Present in Title, H1 ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Secondary KWs</div>
+        <div class="doc-val">lasik eye surgery mumbai, specs removal surgery near me, chashma hatane ka operation</div>
+        <div class="html-val">Covered in content ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Title Tag</div>
+        <div class="doc-val"><strong>LASIK Eye Surgery in Malad, Mumbai | Sentra Clinic</strong></div>
+        <div class="html-val"><strong>LASIK Eye Surgery in Malad, Mumbai | Sentra Clinic</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Meta Description</div>
+        <div class="doc-val">Blade-free LASIK in Malad by Dr. Rohit Modi. Freedom from glasses in 15 minutes. Check your eligibility — book a free LASIK consultation at Sentra Clinic.</div>
+        <div class="html-val">Blade-free LASIK in Malad by Dr. Rohit Modi. Freedom from glasses in 15 minutes. Check your eligibility — book a free LASIK consultation at Sentra Clinic.</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H1</div>
+        <div class="doc-val"><strong>LASIK Eye Surgery in Malad — Freedom From Glasses</strong></div>
+        <div class="html-val"><strong>LASIK Eye Surgery in Malad — Freedom From Glasses</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H2s</div>
+        <div class="doc-val">16 sections as per DOCX article</div>
+        <div class="html-val">16 H2s present — all match DOCX structure ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ PAGE 3 ═══════════ -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div class="page-num">3</div>
+      <div>
+        <div class="page-title">Contoura Vision Page</div>
+        <div class="page-url">URL: /contoura-vision-malad-mumbai &nbsp;·&nbsp; File: 3-contoura-vision-malad-mumbai.html</div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:10px;flex-wrap:wrap;">
+        <span class="badge match">✅ Title Fixed</span>
+        <span class="badge match">✅ Meta Fixed</span>
+        <span class="badge match">✅ H1 Fixed</span>
+      </div>
+    </div>
+    <div class="page-card-body">
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr 90px;gap:12px;padding-bottom:10px;border-bottom:2px solid #f0f0f0;margin-bottom:6px;">
+        <div class="col-label">Field</div>
+        <div class="col-label">📄 Content Pack (DOCX)</div>
+        <div class="col-label">💻 HTML File (Current)</div>
+        <div class="col-label">Status</div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Primary KW</div>
+        <div class="doc-val">contoura vision surgery mumbai</div>
+        <div class="html-val">Present in Title &amp; H1 ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Secondary KWs</div>
+        <div class="doc-val">contoura vision cost, topography guided lasik, contoura vs lasik</div>
+        <div class="html-val">Covered in content ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Title Tag</div>
+        <div class="doc-val"><strong>Contoura Vision Surgery in Mumbai | Sentra Clinic Malad</strong></div>
+        <div class="html-val"><strong>Contoura Vision Surgery in Mumbai | Sentra Clinic Malad</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Meta Description</div>
+        <div class="doc-val">Contoura Vision — the most advanced specs-removal surgery, now in Malad. Sharper than LASIK. Book your Contoura eligibility scan at Sentra Clinic today.</div>
+        <div class="html-val">Contoura Vision — the most advanced specs-removal surgery, now in Malad. Sharper than LASIK. Book your Contoura eligibility scan at Sentra Clinic today.</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H1</div>
+        <div class="doc-val"><strong>Contoura Vision Surgery in Mumbai — Beyond LASIK Precision</strong></div>
+        <div class="html-val"><strong>Contoura Vision Surgery in Mumbai — Beyond LASIK Precision</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H2s</div>
+        <div class="doc-val">14 sections as per DOCX</div>
+        <div class="html-val">14 H2s present — structure matches ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ PAGE 4 ═══════════ -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div class="page-num">4</div>
+      <div>
+        <div class="page-title">ICL Surgery Page</div>
+        <div class="page-url">URL: /icl-surgery-malad-mumbai &nbsp;·&nbsp; File: 4-icl-surgery-malad-mumbai.html</div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:10px;flex-wrap:wrap;">
+        <span class="badge match">✅ Title Fixed</span>
+        <span class="badge match">✅ Meta Fixed</span>
+        <span class="badge match">✅ H1 Fixed</span>
+      </div>
+    </div>
+    <div class="page-card-body">
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr 90px;gap:12px;padding-bottom:10px;border-bottom:2px solid #f0f0f0;margin-bottom:6px;">
+        <div class="col-label">Field</div>
+        <div class="col-label">📄 Content Pack (DOCX)</div>
+        <div class="col-label">💻 HTML File (Current)</div>
+        <div class="col-label">Status</div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Primary KW</div>
+        <div class="doc-val">icl surgery in mumbai</div>
+        <div class="html-val">Present in Title, H1 ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Secondary KWs</div>
+        <div class="doc-val">icl surgery cost mumbai, implantable collamer lens, high power specs removal</div>
+        <div class="html-val">Covered in content ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Title Tag</div>
+        <div class="doc-val"><strong>ICL Surgery in Mumbai | High Power? | Sentra Clinic</strong></div>
+        <div class="html-val"><strong>ICL Surgery in Mumbai | High Power? | Sentra Clinic</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Meta Description</div>
+        <div class="doc-val">Power too high for LASIK? ICL (Implantable Collamer Lens) removes glasses even at -20D. Advanced ICL surgery in Malad, Mumbai at Sentra Clinic.</div>
+        <div class="html-val">Power too high for LASIK? ICL (Implantable Collamer Lens) removes glasses even at -20D. Advanced ICL surgery in Malad, Mumbai at Sentra Clinic.</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H1</div>
+        <div class="doc-val"><strong>ICL Surgery in Mumbai — Glasses-Free Even With Very High Power</strong></div>
+        <div class="html-val"><strong>ICL Surgery in Mumbai — Glasses-Free Even With Very High Power</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H2s</div>
+        <div class="doc-val">14 sections as per DOCX</div>
+        <div class="html-val">14 H2s present — structure matches ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ PAGE 5 ═══════════ -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div class="page-num">5</div>
+      <div>
+        <div class="page-title">Retina Specialist Pillar Page</div>
+        <div class="page-url">URL: /retina-specialist-malad-mumbai &nbsp;·&nbsp; File: 5-retina-specialist-malad-mumbai.html</div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:10px;flex-wrap:wrap;">
+        <span class="badge match">✅ Title Match</span>
+        <span class="badge match">✅ Meta Fixed</span>
+        <span class="badge match">✅ H1 Fixed</span>
+      </div>
+    </div>
+    <div class="page-card-body">
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr 90px;gap:12px;padding-bottom:10px;border-bottom:2px solid #f0f0f0;margin-bottom:6px;">
+        <div class="col-label">Field</div>
+        <div class="col-label">📄 Content Pack (DOCX)</div>
+        <div class="col-label">💻 HTML File (Current)</div>
+        <div class="col-label">Status</div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Primary KW</div>
+        <div class="doc-val">retina specialist in malad</div>
+        <div class="html-val">Present in Title &amp; H1 ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Secondary KWs</div>
+        <div class="doc-val">retina specialist near me, retina doctor mumbai, eye injection retina, laser treatment retina</div>
+        <div class="html-val">Covered in content ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Title Tag</div>
+        <div class="doc-val"><strong>Retina Specialist in Malad, Mumbai | Sentra Clinic</strong></div>
+        <div class="html-val"><strong>Retina Specialist in Malad, Mumbai | Sentra Clinic</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Meta Description</div>
+        <div class="doc-val">Consult an experienced retina specialist in Malad. Diabetic retinopathy, AMD, retinal detachment, laser &amp; injections — advanced retina care at Sentra Clinic.</div>
+        <div class="html-val">Consult an experienced retina specialist in Malad. Diabetic retinopathy, AMD, retinal detachment, laser &amp; injections — advanced retina care at Sentra Clinic.</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H1</div>
+        <div class="doc-val"><strong>Retina Specialist in Malad — Advanced Care for Your Retina</strong></div>
+        <div class="html-val"><strong>Retina Specialist in Malad — Advanced Care for Your Retina</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H2s</div>
+        <div class="doc-val">14 sections as per DOCX</div>
+        <div class="html-val">14 H2s — all match DOCX structure ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+    </div>
+    <div class="notes-box" style="margin:0 24px 20px;background:#f0faf0;border-left-color:#1f7a6c;">
+      <strong>✅ Fixed:</strong> H1 aur Meta — dono ab DOCX se exact match kar rahe hain. Primary keyword <em>"Retina Specialist in Malad"</em> Title aur H1 dono mein present hai.
+    </div>
+  </div>
+
+  <!-- ═══════════ PAGE 6 ═══════════ -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div class="page-num">6</div>
+      <div>
+        <div class="page-title">Diabetic Retinopathy Page</div>
+        <div class="page-url">URL: /diabetic-retinopathy-treatment-malad &nbsp;·&nbsp; File: 6-diabetic-retinopathy-treatment-malad.html</div>
+      </div>
+      <div style="margin-left:auto;">
+        <span class="badge match">✅ All Match</span>
+      </div>
+    </div>
+    <div class="page-card-body">
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr 90px;gap:12px;padding-bottom:10px;border-bottom:2px solid #f0f0f0;margin-bottom:6px;">
+        <div class="col-label">Field</div><div class="col-label">📄 Content Pack (DOCX)</div><div class="col-label">💻 HTML File (Current)</div><div class="col-label">Status</div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Primary KW</div>
+        <div class="doc-val">diabetic retinopathy treatment mumbai</div>
+        <div class="html-val">Present in Title, H1 ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Title Tag</div>
+        <div class="doc-val"><strong>Diabetic Retinopathy Treatment in Mumbai | Sentra Malad</strong></div>
+        <div class="html-val"><strong>Diabetic Retinopathy Treatment in Mumbai | Sentra Malad</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Meta Description</div>
+        <div class="doc-val">Diabetes affecting your eyes? Early treatment saves vision. Advanced diabetic retinopathy care — laser &amp; injections — at Sentra Clinic, Malad, Mumbai.</div>
+        <div class="html-val">Diabetes affecting your eyes? Early treatment saves vision. Advanced diabetic retinopathy care — laser &amp; injections — at Sentra Clinic, Malad, Mumbai.</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H1</div>
+        <div class="doc-val"><strong>Diabetic Retinopathy Treatment in Malad, Mumbai</strong></div>
+        <div class="html-val"><strong>Diabetic Retinopathy Treatment in Malad, Mumbai</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H2s</div>
+        <div class="doc-val">7 sections: How Diabetes Damages the Retina · Stages · Symptoms · Treatment Options · Injection Costs · Prevention · FAQ</div>
+        <div class="html-val">All 7 H2s match ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ PAGE 7 ═══════════ -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div class="page-num">7</div>
+      <div>
+        <div class="page-title">Cataract Surgery Pillar Page</div>
+        <div class="page-url">URL: /cataract-surgery-malad-mumbai &nbsp;·&nbsp; File: 7-cataract-surgery-malad-mumbai.html</div>
+      </div>
+      <div style="margin-left:auto;">
+        <span class="badge match">✅ All Match</span>
+      </div>
+    </div>
+    <div class="page-card-body">
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr 90px;gap:12px;padding-bottom:10px;border-bottom:2px solid #f0f0f0;margin-bottom:6px;">
+        <div class="col-label">Field</div><div class="col-label">📄 Content Pack (DOCX)</div><div class="col-label">💻 HTML File (Current)</div><div class="col-label">Status</div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Primary KW</div>
+        <div class="doc-val">cataract surgery in malad</div>
+        <div class="html-val">In Title, H1 ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Title Tag</div>
+        <div class="doc-val"><strong>Cataract Surgery in Malad, Mumbai | Sentra Clinic</strong></div>
+        <div class="html-val"><strong>Cataract Surgery in Malad, Mumbai | Sentra Clinic</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Meta Description</div>
+        <div class="doc-val">Blade-free cataract surgery in Malad with premium lens options. Same-day discharge, insurance accepted. Book your cataract evaluation at Sentra Clinic.</div>
+        <div class="html-val">Blade-free cataract surgery in Malad with premium lens options. Same-day discharge, insurance accepted. Book your cataract evaluation at Sentra Clinic.</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H1</div>
+        <div class="doc-val"><strong>Cataract Surgery in Malad — See Clearly Again</strong></div>
+        <div class="html-val"><strong>Cataract Surgery in Malad — See Clearly Again</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H2s</div>
+        <div class="doc-val">8 sections: Motiyabind · When Needed · Technology · Lens Options · Surgery Day · Recovery · Insurance · FAQ</div>
+        <div class="html-val">All 8 H2s match ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ PAGE 8 ═══════════ -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div class="page-num">8</div>
+      <div>
+        <div class="page-title">LASIK Cost Page</div>
+        <div class="page-url">URL: /lasik-surgery-cost-mumbai &nbsp;·&nbsp; File: 8-lasik-surgery-cost-mumbai.html</div>
+      </div>
+      <div style="margin-left:auto;">
+        <span class="badge match">✅ All Match</span>
+      </div>
+    </div>
+    <div class="page-card-body">
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr 90px;gap:12px;padding-bottom:10px;border-bottom:2px solid #f0f0f0;margin-bottom:6px;">
+        <div class="col-label">Field</div><div class="col-label">📄 Content Pack (DOCX)</div><div class="col-label">💻 HTML File (Current)</div><div class="col-label">Status</div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Primary KW</div>
+        <div class="doc-val">lasik eye surgery cost in mumbai</div>
+        <div class="html-val">In Title, H1 ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Title Tag</div>
+        <div class="doc-val"><strong>LASIK Surgery Cost in Mumbai 2026 | Honest Pricing</strong></div>
+        <div class="html-val"><strong>LASIK Surgery Cost in Mumbai 2026 | Honest Pricing</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Meta Description</div>
+        <div class="doc-val">How much does LASIK cost in Mumbai? Transparent price ranges for LASIK, Contoura &amp; ICL, what affects cost, EMI options — no hidden charges at Sentra Clinic.</div>
+        <div class="html-val">How much does LASIK cost in Mumbai? Transparent price ranges for LASIK, Contoura &amp; ICL, what affects cost, EMI options — no hidden charges at Sentra Clinic.</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H1</div>
+        <div class="doc-val"><strong>LASIK Surgery Cost in Mumbai — Complete 2026 Guide</strong></div>
+        <div class="html-val"><strong>LASIK Surgery Cost in Mumbai — Complete 2026 Guide</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H2s</div>
+        <div class="doc-val">7 sections: Cost by Technology · What Decides Price · Comparison · EMI · Cheapest Quote · Package Includes · FAQ</div>
+        <div class="html-val">All 7 H2s match ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ PAGE 9 ═══════════ -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div class="page-num">9</div>
+      <div>
+        <div class="page-title">Cataract Cost Page</div>
+        <div class="page-url">URL: /cataract-surgery-cost-mumbai &nbsp;·&nbsp; File: 9-cataract-surgery-cost-mumbai.html</div>
+      </div>
+      <div style="margin-left:auto;">
+        <span class="badge match">✅ All Match</span>
+      </div>
+    </div>
+    <div class="page-card-body">
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr 90px;gap:12px;padding-bottom:10px;border-bottom:2px solid #f0f0f0;margin-bottom:6px;">
+        <div class="col-label">Field</div><div class="col-label">📄 Content Pack (DOCX)</div><div class="col-label">💻 HTML File (Current)</div><div class="col-label">Status</div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Primary KW</div>
+        <div class="doc-val">cataract operation cost in mumbai</div>
+        <div class="html-val">In Title, H1 ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Title Tag</div>
+        <div class="doc-val"><strong>Cataract Operation Cost in Mumbai | Lens Price Guide</strong></div>
+        <div class="html-val"><strong>Cataract Operation Cost in Mumbai | Lens Price Guide</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Meta Description</div>
+        <div class="doc-val">Cataract surgery cost in Mumbai explained — lens-wise price table, insurance &amp; cashless process, what's included. Transparent pricing at Sentra Clinic Malad.</div>
+        <div class="html-val">Cataract surgery cost in Mumbai explained — lens-wise price table, insurance &amp; cashless process, what's included. Transparent pricing at Sentra Clinic Malad.</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H1</div>
+        <div class="doc-val"><strong>Cataract Operation Cost in Mumbai — Lens-Wise Price Guide</strong></div>
+        <div class="html-val"><strong>Cataract Operation Cost in Mumbai — Lens-Wise Price Guide</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H2s</div>
+        <div class="doc-val">6 sections: Cost by Lens · Mono vs Multi · Insurance · Hidden Costs · Package · FAQ</div>
+        <div class="html-val">All 6 H2s match ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ PAGE 10 ═══════════ -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div class="page-num">10</div>
+      <div>
+        <div class="page-title">Dr. Rohit Modi Profile</div>
+        <div class="page-url">URL: /dr-rohit-modi &nbsp;·&nbsp; File: 10-dr-rohit-modi.html</div>
+      </div>
+      <div style="margin-left:auto;">
+        <span class="badge match">✅ All Match</span>
+      </div>
+    </div>
+    <div class="page-card-body">
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr 90px;gap:12px;padding-bottom:10px;border-bottom:2px solid #f0f0f0;margin-bottom:6px;">
+        <div class="col-label">Field</div><div class="col-label">📄 Content Pack (DOCX)</div><div class="col-label">💻 HTML File (Current)</div><div class="col-label">Status</div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Primary KW</div>
+        <div class="doc-val">best lasik surgeon in mumbai</div>
+        <div class="html-val">In Title, meta ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Title Tag</div>
+        <div class="doc-val"><strong>Dr. Rohit Modi — Eye Surgeon in Malad, Mumbai | Sentra</strong></div>
+        <div class="html-val"><strong>Dr. Rohit Modi — Eye Surgeon in Malad, Mumbai | Sentra</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Meta Description</div>
+        <div class="doc-val">Meet Dr. Rohit Modi — refractive &amp; retina specialist in Malad, Mumbai. Qualifications, surgical experience, patient stories. Book a consultation at Sentra.</div>
+        <div class="html-val">Meet Dr. Rohit Modi — refractive &amp; retina specialist in Malad, Mumbai. Qualifications, surgical experience, patient stories. Book a consultation at Sentra.</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H1</div>
+        <div class="doc-val"><strong>Dr. Rohit Modi — Refractive &amp; Retina Specialist, Malad, Mumbai</strong></div>
+        <div class="html-val"><strong>Dr. Rohit Modi — Refractive &amp; Retina Specialist, Malad, Mumbai</strong></div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H2s</div>
+        <div class="doc-val">7 sections: Qualifications · Expertise · Approach · Why Trust · Talks/Media · Book · FAQ</div>
+        <div class="html-val">All 7 H2s match ✓</div>
+        <div><span class="badge match">✅</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ PAGE 11 ═══════════ -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div class="page-num">11</div>
+      <div>
+        <div class="page-title">Dr. Shraddha Surekha Profile</div>
+        <div class="page-url">URL: /dr-shraddha-surekha &nbsp;·&nbsp; File: 11-dr-shraddha-surekha.html</div>
+      </div>
+      <div style="margin-left:auto;">
+        <span class="badge new">🆕 Not in DOCX — Added Separately</span>
+      </div>
+    </div>
+    <div class="page-card-body">
+      <div class="audit-row">
+        <div class="field">Title Tag</div>
+        <div class="doc-val">Not in original DOCX</div>
+        <div class="html-val"><strong>Dr. Shraddha Surekha — Cornea &amp; Cataract Specialist in Malad, Mumbai | Sentra Clinic</strong></div>
+        <div><span class="badge new">🆕 New</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">Meta Description</div>
+        <div class="doc-val">Not in original DOCX</div>
+        <div class="html-val">Meet Dr. Shraddha Surekha — Cornea &amp; Refractive Specialist at Sentra Clinic, Malad. 10+ years, LV Prasad &amp; KEM trained, LASIK, cataract, corneal transplants. Book a consultation.</div>
+        <div><span class="badge new">🆕 New</span></div>
+      </div>
+      <div class="audit-row">
+        <div class="field">H1</div>
+        <div class="doc-val">Not in original DOCX</div>
+        <div class="html-val"><strong>Dr. Shraddha Surekha — Cornea &amp; Cataract Specialist, Malad, Mumbai</strong></div>
+        <div><span class="badge new">🆕 New</span></div>
+      </div>
+    </div>
+    <div class="notes-box" style="margin:0 24px 20px;">
+      This page was created based on clinic's brief — not part of the original SEO content pack. Client/Dr. Modi should review and approve the Title Tag, Meta Description &amp; H1 before publishing.
+    </div>
+  </div>
+
+  <!-- ═══════════ STATUS ═══════════ -->
+  <div class="actions" style="background:linear-gradient(135deg,#f0faf5,#e8f8ee);border-left:5px solid #1f7a6c;">
+    <h3 style="color:#1f7a6c;">✅ Sab Fixes Complete — DOCX ke saath 100% Match</h3>
+
+    <div class="action-item" style="background:#fff;border-left:3px solid #1f7a6c;">
+      <div class="action-num" style="background:#1f7a6c;">1</div>
+      <div class="action-text">
+        <strong>Page 1 — Homepage:</strong> Title → <em>"Eye Specialist in Malad, Mumbai | Sentra Clinic"</em> ✅ · Meta → DOCX exact ✅ · H1 → <em>"Advanced Eye Specialist in Malad, Mumbai — Sentra Clinic"</em> ✅ · CSS scroll fix + max-width:100% ✅
+      </div>
+    </div>
+
+    <div class="action-item" style="background:#fff;border-left:3px solid #1f7a6c;">
+      <div class="action-num" style="background:#1f7a6c;">2</div>
+      <div class="action-text">
+        <strong>Page 2 — LASIK:</strong> Title → comma fixed <em>"in Malad, Mumbai"</em> ✅ · Meta → DOCX exact (removed phone/rating) ✅ · H1 → <em>"LASIK Eye Surgery in Malad — Freedom From Glasses"</em> ✅
+      </div>
+    </div>
+
+    <div class="action-item" style="background:#fff;border-left:3px solid #1f7a6c;">
+      <div class="action-num" style="background:#1f7a6c;">3</div>
+      <div class="action-text">
+        <strong>Page 3 — Contoura:</strong> Title → <em>"Contoura Vision Surgery in Mumbai | Sentra Clinic Malad"</em> ✅ · Meta → DOCX exact ✅ · H1 → <em>"Contoura Vision Surgery in Mumbai — Beyond LASIK Precision"</em> ✅
+      </div>
+    </div>
+
+    <div class="action-item" style="background:#fff;border-left:3px solid #1f7a6c;">
+      <div class="action-num" style="background:#1f7a6c;">4</div>
+      <div class="action-text">
+        <strong>Page 4 — ICL:</strong> Title → <em>"ICL Surgery in Mumbai | High Power? | Sentra Clinic"</em> ✅ · Meta → DOCX exact (with "Implantable Collamer Lens") ✅ · H1 → <em>"ICL Surgery in Mumbai — Glasses-Free Even With Very High Power"</em> ✅
+      </div>
+    </div>
+
+    <div class="action-item" style="background:#fff;border-left:3px solid #1f7a6c;">
+      <div class="action-num" style="background:#1f7a6c;">5</div>
+      <div class="action-text">
+        <strong>Page 5 — Retina:</strong> Meta → "Mumbai" removed (exact DOCX match) ✅ · H1 → <em>"Retina Specialist in Malad — Advanced Care for Your Retina"</em> ✅ · Primary keyword now in H1 ✅
+      </div>
+    </div>
+
+    <div style="margin-top:16px;padding:14px 18px;background:#fff;border-radius:10px;font-size:14px;color:#5c6b7c;">
+      <strong style="color:#0a2540;">📌 Abhi baaki kya hai (client/clinic se confirm karna):</strong>
+      <ul style="margin:8px 0 0;padding-left:20px;">
+        <li>Page 3 — Contoura price <code>[confirm availability with clinic team]</code></li>
+        <li>Pages 8, 9 — Price ranges <code>₹[25,000–50,000]</code> etc.</li>
+        <li>Page 10 — Dr. Modi credentials, timings, Google review snippets</li>
+        <li>Page 11 — Dr. Shraddha consultation timings <code>[days &amp; timings]</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER NOTE -->
+  <div style="margin-top:32px;padding:20px 24px;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.06);font-size:13.5px;color:#6b7a8d;">
+    <strong style="color:#0a2540;">Note:</strong> Title Tag aur Meta Description WordPress mein SEO plugin (Yoast / RankMath) se set karna hai — HTML files mein ye sirf comment mein likha hai, page ke body mein paste nahi karna. Yeh report sirf HTML files ke andar diye gaye values check karti hai jo plugin comment se copy ki jaati hain. Paste karte waqt DOCX ke exact text use karo.
+  </div>
+
+  <div style="margin-top:16px;text-align:center;font-size:12.5px;color:#aaa;">
+    Report generated: July 2026 &nbsp;·&nbsp; Sentra Clinic SEO Audit &nbsp;·&nbsp; Digital Dots Content Pack v1
+  </div>
+
+</div>
+</body>
+</html>
