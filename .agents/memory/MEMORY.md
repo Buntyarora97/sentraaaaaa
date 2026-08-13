@@ -1,0 +1,1 @@
+- [Long-form local SEO pages](malad-west-seo-pages.md) — Keep Malad West landing pages data-driven and validate content length, images, schema, and preview before publishing.
