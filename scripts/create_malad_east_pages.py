@@ -28,8 +28,6 @@ IMAGES = {
     "cornea": "https://sentraclinic.com/wp-content/uploads/2025/04/Cornea-care-min-scaled.jpg",
     "retina": "https://sentraclinic.com/wp-content/uploads/2025/04/Retina-care-min-scaled.jpg",
     "retina2": "https://sentraclinic.com/wp-content/uploads/2025/04/retina-treatment-image-2-min-scaled.jpg",
-    "clinic": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1000&auto=format&fit=crop&q=85",
-    "consult": "https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=1000&auto=format&fit=crop&q=85",
     "family": "https://sentraclinic.com/wp-content/uploads/2025/04/convinence-min-scaled.jpg",
 }
 
@@ -44,6 +42,7 @@ PAGES = [
         "h1": "Eye Hospital in Malad East for Complete, Connected Eye Care",
         "hero": "team",
         "hero_alt": "Eye hospital team at Sentra Clinic serving Malad East patients",
+        "image_keys": ["team", "retina2", "rohit", "shraddha"],
         "intro": [
             "Finding an eye hospital in Malad East should not mean visiting one place for a test, another for a specialist opinion and a third for surgery. Sentra Clinic brings consultation, diagnostic evaluation, treatment planning and follow-up together at Shah Arcade 2 on Rani Sati Road. Patients from Malad East, Dindoshi, Kurar, Pathanwadi, Raheja Township and nearby Thakur Village can begin with a conversation about what has changed in their vision and receive a clear next step.",
             "Our eye hospital approach is deliberately personal. A routine eye checkup in Malad East may be all that is needed for one patient, while another may need a retina assessment, cataract discussion or cornea evaluation. The purpose of a detailed examination is not to sell a procedure; it is to identify the reason behind blurred vision, pain, redness, glare or fluctuating sight and explain sensible options in plain language. If you need urgent attention, call before travelling so the team can guide you to the right care pathway."
@@ -107,6 +106,7 @@ PAGES = [
         "h1": "Eye Doctor in Malad East Who Starts With Listening",
         "hero": "rohit",
         "hero_alt": "Eye doctor Dr Rohit Modi at Sentra Clinic for Malad East patients",
+        "image_keys": ["rohit", "sports", "shraddha", "team"],
         "intro": [
             "When you search for an eye doctor in Malad East, you may already know the symptom but not the cause. Blurred vision can be a spectacle number, dry eye, cataract, corneal irregularity, retinal change or a problem that needs urgent attention. A useful consultation begins by listening to the full story: when the symptom started, whether it changes during the day, what makes it better or worse and how it affects work, travel and family life.",
             "Sentra Clinic offers eye consultations on Rani Sati Road for adults, children and older family members. The first appointment is not a race to prescribe a stronger lens. It is an opportunity to check the health of both eyes, explain what the tests mean and build a follow-up plan that matches your risk. For appointment coordination, call 93729 47075 or WhatsApp +91 93729 47075 before visiting."
@@ -168,8 +168,9 @@ PAGES = [
         "description": "Consult an ophthalmologist in Malad East for cornea, refractive, cataract, glaucoma, retina and comprehensive eye care. Find a careful, evidence-led evaluation at Sentra Clinic.",
         "eyebrow": "Ophthalmology consultation · Malad East",
         "h1": "Ophthalmologist in Malad East for Diagnosis Beyond Glasses",
-        "hero": "clinic",
-        "hero_alt": "Ophthalmology examination room representing specialist eye care in Malad East",
+        "hero": "cornea",
+        "hero_alt": "Cornea care at Sentra Clinic for ophthalmology patients in Malad East",
+        "image_keys": ["cornea", "retina", "rohit", "shraddha"],
         "intro": [
             "An ophthalmologist is a medical eye specialist who can evaluate eye disease as well as vision and glasses. That distinction matters when symptoms are persistent, when a routine prescription is not improving sight, or when a condition may need drops, monitoring or surgery. Sentra Clinic provides ophthalmology consultations in Malad East for people who want a reasoned assessment of the eye—not just a quick number written on a prescription.",
             "The clinic on Rani Sati Road is a practical starting point for cornea, refractive, cataract, glaucoma, retina, diabetic-eye and general eye-health concerns. You do not need to diagnose yourself before calling. Explain the symptom, its timing and any health conditions; the team can help schedule the appropriate appointment. Call 93729 47075 or WhatsApp +91 93729 47075 for current availability."
@@ -237,6 +238,7 @@ PAGES = [
         "h1": "Best Eye Hospital in Malad East? Start With Safety, Clarity and Follow-up",
         "hero": "cataract",
         "hero_alt": "Cataract eye care treatment image for patients looking for an eye hospital in Malad East",
+        "image_keys": ["cataract", "clear", "rohit", "shraddha"],
         "intro": [
             "The phrase “best eye hospital in Malad East” is easy to search and difficult to define. The most suitable centre is not necessarily the one with the loudest claim, the lowest headline price or the longest list of procedures. For a patient, quality means the problem is evaluated properly, the doctor explains reasonable options, safety is prioritised and follow-up is available when it matters. Sentra Clinic is designed around those practical standards.",
             "Whether you need a routine eye checkup in Malad East, cataract guidance, LASIK eligibility, a diabetic retina review or help with a child’s vision, the first step should be an appropriate assessment. The clinic is located at Shah Arcade 2 on Rani Sati Road. Call 93729 47075 or WhatsApp +91 93729 47075 to discuss an appointment rather than selecting a treatment from a search result alone."
@@ -300,6 +302,7 @@ PAGES = [
         "h1": "Eye Clinic in Malad East for Routine Care and Specialist Support",
         "hero": "family",
         "hero_alt": "Family eye care consultation at a modern eye clinic in Malad East",
+        "image_keys": ["family", "vision", "rohit", "shraddha"],
         "intro": [
             "A neighbourhood eye clinic should make it easier to look after your eyes before a small concern becomes a disruption. Sentra Clinic in Malad East offers a convenient starting point for a vision review, dry-eye symptoms, changing glasses, children’s concerns, contact-lens advice, cataract questions and specialist assessment when needed. The aim is simple: understand what brought you in, examine the eyes carefully and give you a plan that fits real life.",
             "The clinic is at Shah Arcade 2, 002, First Floor, B Wing, Rani Sati Road. Residents of Dindoshi, Kurar, Pathanwadi, Thakur Village and nearby parts of Malad East can call 93729 47075 for an appointment or WhatsApp +91 93729 47075 for basic scheduling help. If your symptom is sudden or severe, mention that when you call so you are guided appropriately."
@@ -422,7 +425,7 @@ def page_html(page: dict, style: str, script: str) -> str:
         for question, answer in page["faqs"]
     )
 
-    images = page["hero"], "clinic", "rohit", "shraddha"
+    images = page["image_keys"]
     image_alts = [
         page["hero_alt"],
         f"Eye examination and consultation at Sentra Clinic, {page['slug'].replace('-', ' ')}",
