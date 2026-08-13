@@ -1,0 +1,40 @@
+ask complete. wordpress-pages-html/5-retina-specialist-malad-mumbai.html has been fully rewritten and expanded.
+
+What was delivered:
+
+806 lines / ~67 KB — a substantial expansion from the original 122-line draft
+Design system: Exact <style> block copied verbatim from _shared/design-system.html; all content wrapped in <div class="sc-wrap">; only documented .sc-* classes used throughout
+All 15 required H2 sections built in order:
+
+Hero with eyebrow, H1, CTA buttons, retina clinic image
+Understanding the Retina — anatomy, macula, why damage is permanent
+Conditions We Treat — 6-card .sc-grid-3 covering all major retinal diseases
+Diabetic Retinopathy — staging-based approach (NPDR → PDR → DME → surgery), linked to /diabetic-retinopathy-treatment-malad
+Retinal Detachment — emergency symptoms list, types (rhegmatogenous/tractional/exudative), surgical options
+Age-Related Macular Degeneration — dry vs wet AMD, injection therapy
+Diagnostic Technology — OCT, dilated fundus exam, fundus photography in 3-card grid
+Treatments — laser photocoagulation, anti-VEGF injections, vitrectomy with full detail
+Consultation Step-by-Step — 7-step .sc-steps numbered list
+Why Dr. Rohit Modi — credentials, fellowship badges, surgical volume, academic work, image
+Specialist vs General Ophthalmologist — full 9-row .sc-table comparison
+Patient Experiences — 5 real verbatim Google reviews in .sc-testimonial blocks
+Who Should Get a Retina Checkup — 6-card grid by patient group with frequency guidance
+FAQ Accordion — 10 questions using native <details><summary> (no JS)
+Book Your Consultation — location, all contact details, closing CTA
+All mandatory SEO/UX requirements met:
+
+Breadcrumb line present
+4-stat strip (10,000+ surgeries, 13+ years, 4.9★ rating, 20+ papers)
+Mid-page and end-of-page CTA banners with tel:9372947075 and https://wa.me/919372947075
+Primary keyword "retina specialist in Malad Mumbai" and variants appear 10+ times naturally
+All 4 internal links woven into body text with descriptive anchor text (/, /diabetic-retinopathy-treatment-malad, /dr-rohit-modi, /cataract-surgery-malad-mumbai)
+All real clinic images hotlinked; placeholder src values used where no clinic photo exists
+.sc-note callout boxes for urgent messaging
+Related Pages block with 4-link .sc-related-grid
+Both JSON-LD schema blocks at the end:
+
+MedicalClinic + Physician — full clinic address, phone, aggregate rating, both doctors with credentials, 10 availableService entries
+FAQPage — all 10 FAQ Q&As exactly matching visible text
+SEO comment at top with recommended Title Tag (52 chars) and Meta Description (149 chars).
+
+No invented clinical stats, no fabricated prices — one [₹confirm current injection pricing] placeholder used where price is unknown, as instructed.

@@ -1,0 +1,26 @@
+🔴 SENTRA CLINIC WEBSITE AUDIT 
+❌ CRITICAL — Live pages with unfilled [bracket] placeholders
+
+/dr-rohit-modi/ — LIVE with raw brackets showing to visitors: "[MBBS — Institution, Year]", "[X,000+] procedures", "[Fill: days and hours...]", "[Embed 3-4 Google review snippets here...]". This is Dr. Modi's credential/E-E-A-T page — currently looks broken and unprofessional. Also "Book Online" button links to "#" (dead link).
+Prices never filled anywhere: LASIK, Contoura, ICL, Cataract-cost pages all still show "[₹confirm price]" or bracketed ranges like ₹[25,000–50,000] instead of Sentra's actual packages — exactly what the content pack said never to publish.
+
+❌ MISSING PAGE
+
+/retina-specialist-malad-mumbai/ → returns 404. This was supposed to be the Retina Pillar page (Article 5, Month 1) — it's not live at all.
+
+❌ META TAG BUGS
+
+/lasik-eye-surgery-malad-mumbai/ — title tag is correct, but its meta description is the Cataract Cost page's description ("Cataract surgery cost in Mumbai explained...") — wrong page's meta got pasted in. Google will show the wrong snippet for LASIK searches.
+/lasik-surgery-cost-mumbai/ — has NO meta description at all (missing tag entirely).
+
+❌ BROKEN IMAGES
+
+ICL page has a literal broken image tag with empty src, plus two images pointing to non-existent placeholder files: .../icl-surgery-malad-mumbai/PLACEHOLDER-cost-emi-planning.jpg and PLACEHOLDER-malad-location-map.jpg. Same placeholder map image issue on the LASIK page too.
+ICL page also had a stray literal heading "# icl-surgery-malad-mumbai" (the raw slug) rendering as a title above the real H1 — needs cleanup.
+
+❌ NAVIGATION MENU IS UNPOLISHED
+Site menu shows raw slugs as clickable text instead of proper names — e.g. "cornea-keratoconus-treatment-malad" and "squint-pediatric-eye-care-malad" appear literally in the nav bar for every page. Looks unfinished to any visitor.
+❌ SERVICE URL MISMATCH
+Homepage/footer links to service pages under different slugs than what's in the content pack (e.g. /cornea-care/, /pediatric-eye-care/, /glaucoma-care/, /orbit-oculoplasty/, /strabismus/) — these are NOT the planned SEO slugs (/cornea-keratoconus-treatment-malad, /squint-pediatric-eye-care-malad, /glaucoma-treatment-malad-mumbai, /oculoplasty-malad-mumbai). Need to confirm with developer whether these are duplicate/old pages or the nav needs fixing — right now it's inconsistent, which splits SEO value across two URLs for the same service.
+✅ WHAT'S DONE WELL (Month 1, verified in full)
+Homepage, LASIK, Contoura, ICL, Cataract, LASIK-cost, Cataract-cost pages: title tags match spec, meta descriptions mostly correct, primary keywords used naturally, FAQs present, phone (93729 47075) + WhatsApp CTAs working throughout, content is actually far more expanded/detailed than the original draft (good). Note: site added a second doctor "Dr. Shraddha Surekha" not mentioned anywhere in the content packs — fine if real, but confirm her credentials are accurate since she's now featured heavily for E-E-A-T.
