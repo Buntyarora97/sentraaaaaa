@@ -1,0 +1,45 @@
+# Sentra Clinic — Malad East SEO Content Pack
+
+## Project overview
+
+This repository is a static HTML content pack for Sentra Clinic. It contains existing eye-care pages plus five new, standalone Malad East landing pages:
+
+- `70-eye-hospital-malad-east.html`
+- `71-eye-doctor-malad-east.html`
+- `72-ophthalmologist-malad-east.html`
+- `73-best-eye-hospital-malad-east.html`
+- `74-eye-clinic-malad-east.html`
+
+Each new page includes unique 2,000+ word content, responsive styling, four image placements, title/meta/canonical tags, Open Graph tags, MedicalClinic/Breadcrumb/FAQ structured data, calls to action, and internal links.
+
+## Run locally in Replit
+
+The project is served as static files using Python’s built-in HTTP server:
+
+```bash
+python3 -m http.server 5000
+```
+
+The Replit preview opens the root page. The five new pages are available at:
+
+- `/70-eye-hospital-malad-east.html`
+- `/71-eye-doctor-malad-east.html`
+- `/72-ophthalmologist-malad-east.html`
+- `/73-best-eye-hospital-malad-east.html`
+- `/74-eye-clinic-malad-east.html`
+
+## Content maintenance
+
+The generator at `scripts/create_malad_east_pages.py` keeps the five pages consistent with the existing Sentra visual system. Run it after editing the page data:
+
+```bash
+python3 scripts/create_malad_east_pages.py
+```
+
+The generator stops if a page falls below 2,000 visible words. Image URLs are existing Sentra Clinic assets or public representative images and should be replaced with approved, clinic-owned photography before production publishing where available.
+
+## User preferences
+
+- Keep the existing static HTML/WordPress-ready structure; do not migrate the project to another framework.
+- Keep each SEO landing page genuinely different in search intent and copy; do not use spun or duplicated paragraphs.
+- Confirm clinical claims, fees, hours, route details and emergency availability with the clinic team before publishing.
