@@ -12,6 +12,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 PHONE = "9372947075"
 WHATSAPP = "https://wa.me/919372947075"
+SHARED_CSS = (ROOT / "malad-west-seo-pages.css").read_text(encoding="utf-8")
 
 PAGES = [
     {
@@ -134,6 +135,12 @@ def metadata(html: str, page: dict) -> str:
     return html
 
 
+def inline_shared_css(html: str) -> str:
+    css_tag = f'<style data-sentra-page-css="inline">\n{SHARED_CSS}\n</style>'
+    pattern = r'<link\b[^>]*rel=["\']stylesheet["\'][^>]*href=["\'][^"\']*malad-west-seo-pages\.css[^"\']*["\'][^>]*>\s*'
+    return re.sub(pattern, css_tag + "\n", html, count=1, flags=re.I)
+
+
 def unique_section(page: dict) -> str:
     heading, paragraphs = page["section"]
     body = "".join(f"<p>{p}</p>" for p in paragraphs)
@@ -146,6 +153,7 @@ def main() -> None:
         html = source.read_text(encoding="utf-8")
         html = replace_location(html)
         html = metadata(html, page)
+        html = inline_shared_css(html)
         marker = '<div class="sc-cta">'
         if marker not in html:
             raise RuntimeError(f"Could not find CTA insertion point in {source}")
