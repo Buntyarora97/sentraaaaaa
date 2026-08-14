@@ -51,7 +51,7 @@ COMMON_INTRO = {
 
 PAGES = [
     {
-        "file": "eye-hospital-in-goregaon-east.html",
+        "file": "108-eye-hospital-in-goregaon-east.html",
         "slug": "eye-hospital-in-goregaon-east",
         "kind": "hospital",
         "title": "Eye Hospital in Goregaon East | Sentra Clinic",
@@ -107,7 +107,7 @@ PAGES = [
         "related": [("Eye specialist in Goregaon East", "/eye-specialist-goregaon-east/"), ("Cataract surgery in Goregaon East", "/cataract-surgery-goregaon-east/"), ("Retina specialist in Goregaon East", "/retina-specialist-goregaon-east/"), ("LASIK surgery in Goregaon East", "/lasik-surgery-goregaon-east/"), ("Dr. Rohit Modi", "/dr-rohit-modi/"), ("Comprehensive eye checkup", "/comprehensive-eye-checkup-malad/")],
     },
     {
-        "file": "eye-doctor-in-goregaon-east.html",
+        "file": "107-eye-doctor-in-goregaon-east.html",
         "slug": "eye-doctor-in-goregaon-east",
         "kind": "doctor",
         "title": "Eye Doctor in Goregaon East | Sentra Clinic",
@@ -160,10 +160,10 @@ PAGES = [
             ("Can the doctor give a second opinion?", "Yes. Bring the original reports and recommendation so the doctor can review the evidence, explain alternatives and tell you whether the situation is urgent or can be planned."),
             ("When is an eye symptom an emergency?", "Sudden vision loss, new flashes, a curtain-like shadow, severe eye pain, chemical injury or significant trauma needs urgent medical attention. Do not wait for online advice.")
         ],
-        "related": [("Ophthalmologist in Goregaon East", "/ophthalmologist-in-goregaon-east/"), ("Eye clinic and checkup", "/eye-clinic-and-checkup-in-goregaon-east/"), ("Dr. Rohit Modi", "/dr-rohit-modi/"), ("Dr. Shraddha Surekha", "/dr-shraddha-surekha/"), ("Dry eye treatment", "/dry-eye-treatment-malad/"), ("Children’s eye specialist", "/children-eye-specialist-malad-mumbai/")],
+        "related": [("Ophthalmologist in Goregaon East", "/109-ophthalmologist-in-goregaon-east/"), ("Eye clinic and checkup", "/106-eye-clinic-and-checkup-in-goregaon-east/"), ("Dr. Rohit Modi", "/dr-rohit-modi/"), ("Dr. Shraddha Surekha", "/dr-shraddha-surekha/"), ("Dry eye treatment", "/dry-eye-treatment-malad/"), ("Children’s eye specialist", "/children-eye-specialist-malad-mumbai/")],
     },
     {
-        "file": "ophthalmologist-in-goregaon-east.html",
+        "file": "109-ophthalmologist-in-goregaon-east.html",
         "slug": "ophthalmologist-in-goregaon-east",
         "kind": "ophthalmologist",
         "title": "Ophthalmologist in Goregaon East | Sentra Clinic",
@@ -216,10 +216,10 @@ PAGES = [
             ("Do flashes and floaters require urgent review?", "New flashes, a sudden increase in floaters, a curtain-like shadow or sudden vision loss can be urgent. Contact a medical provider promptly and do not wait for a routine check."),
             ("How do I book from Goregaon East?", "Call Sentra Clinic at 93729 47075 or use WhatsApp at +91 93729 47075. The clinic is in Malad East on Rani Sati Road.")
         ],
-        "related": [("Eye doctor in Goregaon East", "/eye-doctor-in-goregaon-east/"), ("Eye hospital in Goregaon East", "/eye-hospital-in-goregaon-east/"), ("Retina specialist", "/retina-specialist-goregaon-east/"), ("LASIK surgery", "/lasik-surgery-goregaon-east/"), ("Glaucoma treatment", "/glaucoma-treatment-malad-mumbai/"), ("Eye examination guide", "/eye-examination-test-malad.html")],
+        "related": [("Eye doctor in Goregaon East", "/107-eye-doctor-in-goregaon-east/"), ("Eye hospital in Goregaon East", "/108-eye-hospital-in-goregaon-east/"), ("Retina specialist", "/retina-specialist-goregaon-east/"), ("LASIK surgery", "/lasik-surgery-goregaon-east/"), ("Glaucoma treatment", "/glaucoma-treatment-malad-mumbai/"), ("Eye examination guide", "/eye-examination-test-malad.html")],
     },
     {
-        "file": "best-eye-hospital-in-goregaon-east.html",
+        "file": "105-best-108-eye-hospital-in-goregaon-east.html",
         "slug": "best-eye-hospital-in-goregaon-east",
         "kind": "best",
         "title": "Best Eye Hospital in Goregaon East: How to Choose | Sentra Clinic",
@@ -272,10 +272,10 @@ PAGES = [
             ("Can reviews prove that a treatment will work for me?", "No. Reviews describe other people’s experiences. Your suitability and likely outcome depend on your own eye examination, health, anatomy and adherence to aftercare."),
             ("How can I contact Sentra Clinic?", "Call 93729 47075 or WhatsApp +91 93729 47075. The address is Shah Arcade 2, 002, First Floor, B Wing, Rani Sati Road, Malad East.")
         ],
-        "related": [("Eye hospital in Goregaon East", "/eye-hospital-in-goregaon-east/"), ("Eye doctor in Goregaon East", "/eye-doctor-in-goregaon-east/"), ("Ophthalmologist in Goregaon East", "/ophthalmologist-in-goregaon-east/"), ("Cataract surgery", "/cataract-surgery-goregaon-east/"), ("LASIK surgery", "/lasik-surgery-goregaon-east/"), ("Eye clinic and checkup", "/eye-clinic-and-checkup-in-goregaon-east/")],
+        "related": [("Eye hospital in Goregaon East", "/108-eye-hospital-in-goregaon-east/"), ("Eye doctor in Goregaon East", "/107-eye-doctor-in-goregaon-east/"), ("Ophthalmologist in Goregaon East", "/109-ophthalmologist-in-goregaon-east/"), ("Cataract surgery", "/cataract-surgery-goregaon-east/"), ("LASIK surgery", "/lasik-surgery-goregaon-east/"), ("Eye clinic and checkup", "/106-eye-clinic-and-checkup-in-goregaon-east/")],
     },
     {
-        "file": "eye-clinic-and-checkup-in-goregaon-east.html",
+        "file": "106-eye-clinic-and-checkup-in-goregaon-east.html",
         "slug": "eye-clinic-and-checkup-in-goregaon-east",
         "kind": "clinic",
         "title": "Eye Clinic & Eye Checkup in Goregaon East | Sentra Clinic",
@@ -328,7 +328,7 @@ PAGES = [
             ("Can contact-lens users visit this eye clinic?", "Yes. Bring lens details and cleaning products, and report pain, light sensitivity, redness or reduced vision promptly. Do not self-treat a painful contact-lens eye."),
             ("What is the address and phone number?", "Sentra Clinic is at Shah Arcade 2, 002, First Floor, B Wing, Rani Sati Road, Malad East, Mumbai 400097. Call 93729 47075 or WhatsApp +91 93729 47075.")
         ],
-        "related": [("Eye doctor in Goregaon East", "/eye-doctor-in-goregaon-east/"), ("Ophthalmologist in Goregaon East", "/ophthalmologist-in-goregaon-east/"), ("Eye hospital in Goregaon East", "/eye-hospital-in-goregaon-east/"), ("Diabetic eye checkup", "/diabetic-eye-checkup-malad-west/"), ("Dry eye treatment", "/dry-eye-treatment-malad/"), ("Children’s eye care", "/children-eye-specialist-malad-mumbai/")],
+        "related": [("Eye doctor in Goregaon East", "/107-eye-doctor-in-goregaon-east/"), ("Ophthalmologist in Goregaon East", "/109-ophthalmologist-in-goregaon-east/"), ("Eye hospital in Goregaon East", "/108-eye-hospital-in-goregaon-east/"), ("Diabetic eye checkup", "/diabetic-eye-checkup-malad-west/"), ("Dry eye treatment", "/dry-eye-treatment-malad/"), ("Children’s eye care", "/children-eye-specialist-malad-mumbai/")],
     },
 ]
 
