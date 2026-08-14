@@ -16,8 +16,8 @@ SHARED_CSS = (ROOT / "malad-west-seo-pages.css").read_text(encoding="utf-8")
 
 PAGES = [
     {
-        "source": "78-best-eye-hospital-malad-west.html",
-        "output": "best-eye-hospital-in-goregaon-west.html",
+        "source": "75-best-eye-hospital-malad-west.html",
+        "output": "82-best-eye-hospital-in-goregaon-west.html",
         "title": "Best Eye Hospital in Goregaon West | Sentra Clinic",
         "description": "Looking for the best eye hospital in Goregaon West? Compare doctor-led diagnosis, cataract, retina, LASIK guidance and follow-up at Sentra Clinic, Malad East.",
         "section": (
@@ -30,8 +30,8 @@ PAGES = [
         ),
     },
     {
-        "source": "84-eye-clinic-malad-west.html",
-        "output": "eye-clinic-in-goregaon-west.html",
+        "source": "81-eye-clinic-malad-west.html",
+        "output": "83-eye-clinic-in-goregaon-west.html",
         "title": "Eye Clinic in Goregaon West | Sentra Clinic",
         "description": "Find an eye clinic in Goregaon West for comprehensive checkups, cataract, retina, LASIK screening, dry eye and family eye care at Sentra Clinic near Malad East.",
         "section": (
@@ -44,8 +44,8 @@ PAGES = [
         ),
     },
     {
-        "source": "79-cataract-surgery-malad-west.html",
-        "output": "cataract-surgery-in-goregaon-west.html",
+        "source": "76-cataract-surgery-malad-west.html",
+        "output": "84-cataract-surgery-in-goregaon-west.html",
         "title": "Cataract Surgery in Goregaon West | Sentra Clinic",
         "description": "Explore cataract surgery in Goregaon West with examination-led lens counselling, measurements, recovery guidance and follow-up at Sentra Clinic, Malad East.",
         "section": (
@@ -58,8 +58,8 @@ PAGES = [
         ),
     },
     {
-        "source": "80-retina-specialist-malad-west.html",
-        "output": "retina-specialist-in-goregaon-west.html",
+        "source": "77-retina-specialist-malad-west.html",
+        "output": "85-retina-specialist-in-goregaon-west.html",
         "title": "Retina Specialist in Goregaon West | Sentra Clinic",
         "description": "Need a retina specialist in Goregaon West? Sentra Clinic near Malad East offers doctor-led retinal evaluation, diabetic eye screening and treatment planning.",
         "section": (
@@ -72,8 +72,8 @@ PAGES = [
         ),
     },
     {
-        "source": "82-eye-checkup-malad-west.html",
-        "output": "eye-checkup-in-goregaon-west.html",
+        "source": "79-eye-checkup-malad-west.html",
+        "output": "86-eye-checkup-in-goregaon-west.html",
         "title": "Eye Checkup in Goregaon West | Sentra Clinic",
         "description": "Book an eye checkup in Goregaon West for vision, eye pressure, cataract, glaucoma and retina screening at Sentra Clinic, Malad East.",
         "section": (
@@ -101,17 +101,17 @@ def replace_location(text: str) -> str:
     text = text.replace("/goregaon-west-seo-pages.css", "/malad-west-seo-pages.css")
     # Point transformed related links at the five new, canonical preview files.
     link_map = {
-        "/best-eye-hospital-goregaon-west.html": "/best-eye-hospital-in-goregaon-west.html",
-        "/eye-clinic-goregaon-west.html": "/eye-clinic-in-goregaon-west.html",
-        "/eye-checkup-goregaon-west.html": "/eye-checkup-in-goregaon-west.html",
-        "/cataract-surgery-goregaon-west.html": "/cataract-surgery-in-goregaon-west.html",
-        "/retina-specialist-goregaon-west.html": "/retina-specialist-in-goregaon-west.html",
-        "/75-eye-hospital-goregaon-west.html": "/best-eye-hospital-in-goregaon-west.html",
-        "/76-eye-doctor-goregaon-west.html": "/eye-clinic-in-goregaon-west.html",
-        "/77-ophthalmologist-goregaon-west.html": "/retina-specialist-in-goregaon-west.html",
-        "/82-eye-checkup-goregaon-west.html": "/eye-checkup-in-goregaon-west.html",
-        "/80-retina-specialist-goregaon-west.html": "/retina-specialist-in-goregaon-west.html",
-        "/81-lasik-surgery-goregaon-west.html": "/eye-clinic-in-goregaon-west.html",
+        "/best-eye-hospital-goregaon-west.html": "/82-best-eye-hospital-in-goregaon-west.html",
+        "/eye-clinic-goregaon-west.html": "/83-eye-clinic-in-goregaon-west.html",
+        "/eye-checkup-goregaon-west.html": "/86-eye-checkup-in-goregaon-west.html",
+        "/cataract-surgery-goregaon-west.html": "/84-cataract-surgery-in-goregaon-west.html",
+        "/retina-specialist-goregaon-west.html": "/85-retina-specialist-in-goregaon-west.html",
+        "/75-eye-hospital-goregaon-west.html": "/82-best-eye-hospital-in-goregaon-west.html",
+        "/76-eye-doctor-goregaon-west.html": "/83-eye-clinic-in-goregaon-west.html",
+        "/77-ophthalmologist-goregaon-west.html": "/85-retina-specialist-in-goregaon-west.html",
+        "/82-eye-checkup-goregaon-west.html": "/86-eye-checkup-in-goregaon-west.html",
+        "/80-retina-specialist-goregaon-west.html": "/85-retina-specialist-in-goregaon-west.html",
+        "/81-lasik-surgery-goregaon-west.html": "/83-eye-clinic-in-goregaon-west.html",
     }
     for old, new in link_map.items():
         text = text.replace(old, new)

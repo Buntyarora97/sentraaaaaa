@@ -16,11 +16,11 @@ def target_files():
     # These five are the new post-84 Goregaon West pages and use the same
     # Elementor-ready page system, even though their filenames are keyword-led.
     numbered.extend(ROOT / name for name in (
-        "best-eye-hospital-in-goregaon-west.html",
-        "eye-clinic-in-goregaon-west.html",
-        "cataract-surgery-in-goregaon-west.html",
-        "retina-specialist-in-goregaon-west.html",
-        "eye-checkup-in-goregaon-west.html",
+        "82-best-eye-hospital-in-goregaon-west.html",
+        "83-eye-clinic-in-goregaon-west.html",
+        "84-cataract-surgery-in-goregaon-west.html",
+        "85-retina-specialist-in-goregaon-west.html",
+        "86-eye-checkup-in-goregaon-west.html",
     ))
     return sorted(set(numbered))
 

@@ -63,7 +63,7 @@ COMMON_INTRO = {
 
 PAGES = [
     {
-        "file": "80-retina-specialist-malad-west.html",
+        "file": "77-retina-specialist-malad-west.html",
         "slug": "retina-specialist-malad-west",
         "title": "Retina Specialist in Malad West | Sentra Clinic",
         "description": "Looking for a retina specialist in Malad West? Sentra Clinic offers diabetic retina screening, retinal diagnosis, laser and injection planning with doctor-led follow-up.",
@@ -127,7 +127,7 @@ PAGES = [
         ],
     },
     {
-        "file": "81-lasik-surgery-malad-west.html",
+        "file": "78-lasik-surgery-malad-west.html",
         "slug": "lasik-surgery-malad-west",
         "title": "LASIK Surgery in Malad West | Sentra Clinic",
         "description": "Considering LASIK surgery in Malad West? Get a doctor-led eligibility evaluation, corneal mapping, realistic expectations and follow-up planning at Sentra Clinic.",
@@ -191,7 +191,7 @@ PAGES = [
         ],
     },
     {
-        "file": "82-eye-checkup-malad-west.html",
+        "file": "79-eye-checkup-malad-west.html",
         "slug": "eye-checkup-malad-west",
         "title": "Eye Checkup in Malad West | Sentra Clinic",
         "description": "Book a complete eye checkup in Malad West for vision, pressure, cornea, cataract, glaucoma and retina screening at Sentra Clinic near Malad station.",
@@ -255,7 +255,7 @@ PAGES = [
         ],
     },
     {
-        "file": "83-diabetic-eye-checkup-malad-west.html",
+        "file": "80-diabetic-eye-checkup-malad-west.html",
         "slug": "diabetic-eye-checkup-malad-west",
         "title": "Diabetic Eye Checkup in Malad West | Sentra Clinic",
         "description": "Book a diabetic eye checkup in Malad West for retinal screening, macula evaluation and personalised follow-up at Sentra Clinic near Malad station.",
@@ -319,7 +319,7 @@ PAGES = [
         ],
     },
     {
-        "file": "84-eye-clinic-malad-west.html",
+        "file": "81-eye-clinic-malad-west.html",
         "slug": "eye-clinic-malad-west",
         "title": "Eye Clinic in Malad West | Sentra Clinic",
         "description": "Find an eye clinic near Malad West for eye checkups, cataract, LASIK screening, retina, cornea and family eye care at Sentra Clinic, Malad East.",
@@ -369,9 +369,9 @@ PAGES = [
             ]),
         ],
         "cards": [
-            ("🔎 Complete checkup", "Start with an examination when you are unsure which specialist you need.", "/82-eye-checkup-malad-west.html"),
-            ("✨ LASIK pathway", "Understand screening and alternatives before choosing glasses removal.", "/81-lasik-surgery-malad-west.html"),
-            ("🩺 Retina care", "Protect vision with timely diabetes and retinal evaluation.", "/80-retina-specialist-malad-west.html"),
+            ("🔎 Complete checkup", "Start with an examination when you are unsure which specialist you need.", "/79-eye-checkup-malad-west.html"),
+            ("✨ LASIK pathway", "Understand screening and alternatives before choosing glasses removal.", "/78-lasik-surgery-malad-west.html"),
+            ("🩺 Retina care", "Protect vision with timely diabetes and retinal evaluation.", "/77-retina-specialist-malad-west.html"),
         ],
         "faqs": [
             ("Where is the eye clinic serving Malad West?", "Sentra Clinic is at Shah Arcade 2, 002, First Floor, B Wing, Rani Sati Road, Malad East. Call 93729 47075 for directions and appointments."),

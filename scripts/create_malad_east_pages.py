@@ -34,7 +34,7 @@ IMAGES = {
 
 PAGES = [
     {
-        "file": "70-eye-hospital-malad-east.html",
+        "file": "67-eye-hospital-malad-east.html",
         "slug": "eye-hospital-malad-east",
         "title": "Eye Hospital in Malad East | Sentra Clinic",
         "description": "Looking for an eye hospital in Malad East? Sentra Clinic offers comprehensive eye checkups, cataract, LASIK, cornea, glaucoma and retina care on Rani Sati Road.",
@@ -98,7 +98,7 @@ PAGES = [
         ],
     },
     {
-        "file": "71-eye-doctor-malad-east.html",
+        "file": "68-eye-doctor-malad-east.html",
         "slug": "eye-doctor-malad-east",
         "title": "Eye Doctor in Malad East | Sentra Clinic",
         "description": "Book an eye doctor in Malad East for blurred vision, dry eye, cataract, children’s eye concerns, retina screening and a complete eye checkup on Rani Sati Road.",
@@ -162,7 +162,7 @@ PAGES = [
         ],
     },
     {
-        "file": "72-ophthalmologist-malad-east.html",
+        "file": "69-ophthalmologist-malad-east.html",
         "slug": "ophthalmologist-malad-east",
         "title": "Ophthalmologist in Malad East | Sentra Clinic",
         "description": "Consult an ophthalmologist in Malad East for cornea, refractive, cataract, glaucoma, retina and comprehensive eye care. Find a careful, evidence-led evaluation at Sentra Clinic.",
@@ -230,7 +230,7 @@ PAGES = [
         ],
     },
     {
-        "file": "73-best-eye-hospital-malad-east.html",
+        "file": "70-best-eye-hospital-malad-east.html",
         "slug": "best-eye-hospital-malad-east",
         "title": "Best Eye Hospital in Malad East | Sentra Clinic",
         "description": "Searching for the best eye hospital in Malad East? Compare what matters: specialist evaluation, safe diagnostics, clear estimates, follow-up and patient-first eye care at Sentra Clinic.",
@@ -294,7 +294,7 @@ PAGES = [
         ],
     },
     {
-        "file": "74-eye-clinic-malad-east.html",
+        "file": "71-eye-clinic-malad-east.html",
         "slug": "eye-clinic-malad-east",
         "title": "Eye Clinic in Malad East | Sentra Clinic",
         "description": "Sentra Clinic is an eye clinic in Malad East for routine checkups, dry eye, children’s vision, contact-lens advice, cataract, retina and surgical consultations.",
@@ -388,19 +388,19 @@ def paragraph_html(texts: list[str]) -> str:
 
 def page_html(page: dict, style: str, script: str) -> str:
     extra_sections = {
-        "71-eye-doctor-malad-east.html": [
+        "68-eye-doctor-malad-east.html": [
             ("Preparing for your eye doctor visit", [
                 "If you have used eye drops recently, write down their names and how often you used them. Mention allergies, pregnancy or breastfeeding when relevant, and tell the doctor about medicines that affect blood pressure or blood thinning. Contact-lens users should share the type and wearing schedule. These details can change how the cornea, tear film and eye pressure are interpreted.",
                 "After the appointment, keep the plan visible at home. Mark the day for a review, set a reminder for drops and ask a family member to repeat the instructions if the patient is older. If the symptom gets worse, the treatment causes a worrying reaction or the diagnosis is unclear, call rather than changing the plan yourself. Good follow-up turns one consultation into ongoing eye health."
             ]),
         ],
-        "73-best-eye-hospital-malad-east.html": [
+        "70-best-eye-hospital-malad-east.html": [
             ("A fair comparison for families", [
                 "When comparing an eye hospital, write down the same questions for every centre: who will examine you, what tests are needed, what alternatives exist, what is included in the estimate and how follow-up is handled. Ask for medical terms to be explained in everyday language. A family should never feel that asking about risk, cost or a second opinion is disrespectful.",
                 "Also compare access. A centre that is practical to reach may make it easier to attend post-operative reviews or bring an older parent for repeat testing. Keep copies of reports and consent documents. The strongest choice is the one that combines appropriate expertise with a plan you understand and can follow."
             ]),
         ],
-        "74-eye-clinic-malad-east.html": [
+        "71-eye-clinic-malad-east.html": [
             ("A useful routine for healthier eyes", [
                 "Between visits, protect comfort by taking regular screen breaks, blinking fully, wearing prescribed glasses and avoiding unapproved drops. Sunglasses and a hat can reduce bright-light discomfort, while outdoor time is helpful for children’s general visual habits. These everyday measures support eye health but cannot diagnose glaucoma, cataract or retinal disease, so keep the review recommended for your age and medical history.",
                 "Make the next appointment easier by saving your current prescription, recording when symptoms occurred and bringing the same medicines and glasses. Tell the clinic if you could not follow an instruction because of cost, work or difficulty using a bottle. The team can only improve a plan when they know what happened at home. A simple folder or phone note with the date, eye affected and treatment response can prevent confusion when several family members share care."
